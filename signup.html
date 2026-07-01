@@ -94,6 +94,19 @@
                     setTimeout(() => preloader.style.display = 'none', 800);
                 }, 1000);
             }
+
+            const signupForm = document.querySelector('.signup-form');
+            if(signupForm) {
+                signupForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const fname = document.getElementById('fname').value;
+                    const lname = document.getElementById('lname').value;
+                    if(fname) {
+                        sessionStorage.setItem('signupName', fname + ' ' + lname);
+                        window.location.href = 'login.html';
+                    }
+                });
+            }
         });
     </script>
 </body>

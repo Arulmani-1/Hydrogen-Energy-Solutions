@@ -23,7 +23,7 @@ body {
 .signup-banner {
     flex: 1;
     position: relative;
-    background-image: url('../images/wind-turbines.jpg'); /* Same Hydrogen themed background */
+    background-image: url('../images/images5.jpg'); /* Same Hydrogen themed background */
     background-size: cover;
     background-position: center;
     display: flex;

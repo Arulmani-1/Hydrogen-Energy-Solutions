@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +10,15 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/admin_dashboard.css">
 </head>
+
 <body>
 
     <!-- Sidebar -->
     <aside class="sidebar">
-        <a href="home.html" class="sidebar-logo">
+        <a href="javascript:void(0)" class="sidebar-logo" style="cursor: default;">
             <img src="images/logo.png" alt="STACKLY Logo">
         </a>
-        
+
         <nav class="sidebar-nav">
             <a href="#" class="nav-item active">
                 <i class="fas fa-chart-pie"></i>
@@ -49,10 +51,12 @@
     <main class="main-content">
         <header class="topbar">
             <button id="mobile-menu-btn" class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
-            <h1 class="page-title">Admin Console</h1>
+            <h1 class="page-title">Welcome, <span id="header-user-name">Admin</span>!</h1>
             <div class="topbar-actions">
                 <span id="user-email-display" class="user-email-display"></span>
-                <a href="#" class="btn-logout" onclick="sessionStorage.removeItem('loggedInEmail'); window.location.href='home.html'; return false;">Logout</a>
+                <a href="#" class="btn-logout" onclick="sessionStorage.removeItem('loggedInEmail'); window.location.href='home.html'; return false;">
+                    <i class="fas fa-sign-out-alt"></i> <span class="logout-text">Logout</span>
+                </a>
             </div>
         </header>
 
@@ -110,7 +114,8 @@
             <!-- Facilities Table -->
             <section class="activity-section">
                 <h3 class="section-title">Global Facilities Status</h3>
-                <table>
+                <div class="table-responsive">
+                    <table>
                     <thead>
                         <tr>
                             <th>Facility Name</th>
@@ -151,23 +156,29 @@
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </section>
 
             <!-- Recent System Alerts -->
             <section class="activity-section">
                 <h3 class="section-title">System Alerts</h3>
                 <div style="display: flex; flex-direction: column; gap: 15px;">
-                    <div style="padding: 15px; border-radius: 8px; background: rgba(245, 158, 11, 0.1); border-left: 3px solid #f59e0b;">
+                    <div
+                        style="padding: 15px; border-radius: 8px; background: rgba(245, 158, 11, 0.1); border-left: 3px solid #f59e0b;">
                         <h5 style="color: #f59e0b; margin-bottom: 5px;">Storage Capacity Warning</h5>
                         <p style="font-size: 0.8rem; color: var(--text-muted);">Nevada plant nearing 90% capacity.</p>
                     </div>
-                    <div style="padding: 15px; border-radius: 8px; background: rgba(248, 113, 113, 0.1); border-left: 3px solid #f87171;">
+                    <div
+                        style="padding: 15px; border-radius: 8px; background: rgba(248, 113, 113, 0.1); border-left: 3px solid #f87171;">
                         <h5 style="color: #f87171; margin-bottom: 5px;">Connection Lost</h5>
-                        <p style="font-size: 0.8rem; color: var(--text-muted);">Tokyo hub is unresponsive since 04:00 AM.</p>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Tokyo hub is unresponsive since 04:00
+                            AM.</p>
                     </div>
-                    <div style="padding: 15px; border-radius: 8px; background: rgba(0, 229, 255, 0.1); border-left: 3px solid var(--primary);">
+                    <div
+                        style="padding: 15px; border-radius: 8px; background: rgba(0, 229, 255, 0.1); border-left: 3px solid var(--primary);">
                         <h5 style="color: var(--primary); margin-bottom: 5px;">System Update Complete</h5>
-                        <p style="font-size: 0.8rem; color: var(--text-muted);">Core services updated to v2.4 successfully.</p>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Core services updated to v2.4
+                            successfully.</p>
                     </div>
                 </div>
             </section>
@@ -179,15 +190,25 @@
             const email = sessionStorage.getItem('loggedInEmail');
             if(email) {
                 document.getElementById('user-email-display').textContent = email;
+                const sidebarEmail = document.getElementById('sidebar-user-email');
+                if(sidebarEmail) sidebarEmail.textContent = email;
+            }
+
+            const signupName = sessionStorage.getItem('signupName');
+            if (signupName) {
+                const headerName = document.getElementById('header-user-name');
+                const sidebarName = document.getElementById('sidebar-user-name');
+                if (headerName) headerName.textContent = signupName;
+                if (sidebarName) sidebarName.textContent = signupName;
             }
 
             const mobileBtn = document.getElementById('mobile-menu-btn');
             const sidebar = document.querySelector('.sidebar');
-            if(mobileBtn && sidebar) {
+            if (mobileBtn && sidebar) {
                 mobileBtn.addEventListener('click', () => {
                     sidebar.classList.toggle('active');
                 });
-                
+
                 document.addEventListener('click', (e) => {
                     if (window.innerWidth <= 768 && sidebar.classList.contains('active')) {
                         if (!sidebar.contains(e.target) && !mobileBtn.contains(e.target)) {
@@ -199,4 +220,5 @@
         });
     </script>
 </body>
+
 </html>

@@ -145,6 +145,54 @@ function initScrollTriggers() {
             start: "top 80%",
         }
     });
+
+    // Animate Revolution Section
+    const revTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".revolution-section",
+            start: "top 75%"
+        }
+    });
+
+    revTl.from(".revolution-title", {
+        x: -100,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out"
+    })
+    .from(".revolution-text-wrapper", {
+        x: -100,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out"
+    }, "-=0.6")
+    .from(".revolution-image-wrapper", {
+        x: 100,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out"
+    }, "-=0.8");
+
+    // Animate Intro Section
+    const introTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".intro",
+            start: "top 75%"
+        }
+    });
+
+    introTl.from(".intro-text", {
+        x: -100,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out"
+    })
+    .from(".intro-image-wrapper", {
+        x: 100,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out"
+    }, "-=0.8");
 }
 
 function initTiltCards() {

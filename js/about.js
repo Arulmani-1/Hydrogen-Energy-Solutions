@@ -48,4 +48,38 @@ function initAboutAnimations() {
             card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
         });
     });
+
+    // Animate About Intro Section
+    const aboutIntroTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".about-intro-section",
+            start: "top 75%"
+        }
+    });
+
+    aboutIntroTl.from(".about-content", {
+        x: -100,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out"
+    })
+    .from(".about-images", {
+        x: 100,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out"
+    }, "-=0.8");
+
+    // Animate Core Values Cards from Bottom
+    gsap.from(".values-grid .value-card", {
+        y: 100,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: ".values-section",
+            start: "top 80%"
+        }
+    });
 }

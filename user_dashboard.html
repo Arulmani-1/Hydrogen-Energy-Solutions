@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,15 +10,28 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/user_dashboard.css">
 </head>
+
 <body>
 
     <!-- Sidebar -->
     <aside class="sidebar">
-        <a href="home.html" class="sidebar-logo">
+        <a href="javascript:void(0)" class="sidebar-logo" style="cursor: default;">
             <img src="images/logo.png" alt="STACKLY Logo">
         </a>
-        
+
         <nav class="sidebar-nav">
+            <!-- User Profile Display -->
+            <div class="user-profile-sidebar"
+                style="padding: 15px 20px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px; color: #fff;">
+                <div style="display: flex; align-items: center;">
+                    <i class="fas fa-user-circle" style="font-size: 24px; margin-right: 10px;"></i>
+                    <div style="display: flex; flex-direction: column;">
+                        <span id="sidebar-user-name" style="font-weight: 600;">Guest</span>
+                        <span id="sidebar-user-email" style="font-size: 0.8rem; color: #aaa;"></span>
+                    </div>
+                </div>
+            </div>
+
             <a href="#" class="nav-item active">
                 <i class="fas fa-home"></i>
                 <span>Overview</span>
@@ -45,10 +59,13 @@
     <main class="main-content">
         <header class="topbar">
             <button id="mobile-menu-btn" class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
-            <h1 class="page-title">Welcome back, John!</h1>
+            <h1 class="page-title">Welcome back, <span id="header-user-name">John</span>!</h1>
             <div class="topbar-actions">
                 <span id="user-email-display" class="user-email-display"></span>
-                <a href="#" class="btn-logout" onclick="sessionStorage.removeItem('loggedInEmail'); window.location.href='home.html'; return false;">Logout</a>
+                <a href="#" class="btn-logout"
+                    onclick="sessionStorage.removeItem('loggedInEmail'); window.location.href='home.html'; return false;">
+                    <i class="fas fa-sign-out-alt"></i> <span class="logout-text">Logout</span>
+                </a>
             </div>
         </header>
 
@@ -130,17 +147,27 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const email = sessionStorage.getItem('loggedInEmail');
-            if(email) {
+            if (email) {
                 document.getElementById('user-email-display').textContent = email;
+                const sidebarEmail = document.getElementById('sidebar-user-email');
+                if (sidebarEmail) sidebarEmail.textContent = email;
+            }
+
+            const signupName = sessionStorage.getItem('signupName');
+            if (signupName) {
+                const headerName = document.getElementById('header-user-name');
+                const sidebarName = document.getElementById('sidebar-user-name');
+                if (headerName) headerName.textContent = signupName;
+                if (sidebarName) sidebarName.textContent = signupName;
             }
 
             const mobileBtn = document.getElementById('mobile-menu-btn');
             const sidebar = document.querySelector('.sidebar');
-            if(mobileBtn && sidebar) {
+            if (mobileBtn && sidebar) {
                 mobileBtn.addEventListener('click', () => {
                     sidebar.classList.toggle('active');
                 });
-                
+
                 document.addEventListener('click', (e) => {
                     if (window.innerWidth <= 768 && sidebar.classList.contains('active')) {
                         if (!sidebar.contains(e.target) && !mobileBtn.contains(e.target)) {
@@ -152,4 +179,5 @@
         });
     </script>
 </body>
+
 </html>
