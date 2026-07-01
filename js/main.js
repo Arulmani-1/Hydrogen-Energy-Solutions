@@ -195,6 +195,31 @@ function initNavbar() {
         }
     });
 
+    // Set Active Link Based on Current Page
+    let currentPath = window.location.pathname.split('/').pop();
+    if (currentPath === '' || currentPath === 'index.html') {
+        currentPath = 'home.html';
+    }
+
+    const allLinks = document.querySelectorAll('.desktop-nav a');
+    
+    // First remove hardcoded active classes
+    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+    
+    allLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && href !== '#' && href === currentPath) {
+            if (link.classList.contains('nav-link')) {
+                link.classList.add('active');
+            }
+            const parentDropdown = link.closest('.has-dropdown');
+            if (parentDropdown) {
+                const parentNavLink = parentDropdown.querySelector('.nav-link');
+                if (parentNavLink) parentNavLink.classList.add('active');
+            }
+        }
+    });
+
     // Mobile Toggle
     if(mobileToggle && desktopNav) {
         mobileToggle.addEventListener('click', () => {
