@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - STACKLY</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/admin_dashboard.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <a href="home.html" class="sidebar-logo">
+            <img src="images/logo.png" alt="STACKLY Logo">
+        </a>
+        
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active">
+                <i class="fas fa-chart-pie"></i>
+                <span>System Overview</span>
+            </a>
+            <a href="404.html" class="nav-item">
+                <i class="fas fa-users"></i>
+                <span>User Management</span>
+            </a>
+            <a href="404.html" class="nav-item">
+                <i class="fas fa-industry"></i>
+                <span>Facilities Setup</span>
+            </a>
+            <a href="404.html" class="nav-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Analytics & Reports</span>
+            </a>
+            <a href="404.html" class="nav-item">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>System Alerts</span>
+            </a>
+            <a href="404.html" class="nav-item">
+                <i class="fas fa-cogs"></i>
+                <span>Platform Settings</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="topbar">
+            <button id="mobile-menu-btn" class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <h1 class="page-title">Admin Console</h1>
+            <div class="topbar-actions">
+                <span id="user-email-display" class="user-email-display"></span>
+                <a href="#" class="btn-logout" onclick="sessionStorage.removeItem('loggedInEmail'); window.location.href='home.html'; return false;">Logout</a>
+            </div>
+        </header>
+
+        <div class="dashboard-grid">
+            <!-- Widget 1 -->
+            <div class="widget-card">
+                <div class="widget-header">
+                    <span>Total Production</span>
+                    <i class="fas fa-bolt" style="color: var(--primary);"></i>
+                </div>
+                <div class="widget-value">4.2M <span style="font-size: 1rem; color: var(--text-muted);">kWh</span></div>
+                <div class="widget-trend trend-up">
+                    <i class="fas fa-arrow-up"></i> +8.5% this week
+                </div>
+            </div>
+
+            <!-- Widget 2 -->
+            <div class="widget-card">
+                <div class="widget-header">
+                    <span>Active Users</span>
+                    <i class="fas fa-users" style="color: #4ade80;"></i>
+                </div>
+                <div class="widget-value">1,204</div>
+                <div class="widget-trend trend-up">
+                    <i class="fas fa-arrow-up"></i> +24 new today
+                </div>
+            </div>
+
+            <!-- Widget 3 -->
+            <div class="widget-card">
+                <div class="widget-header">
+                    <span>System Status</span>
+                    <i class="fas fa-server" style="color: #60a5fa;"></i>
+                </div>
+                <div class="widget-value">99.9%</div>
+                <div class="widget-trend" style="color: var(--text-muted);">
+                    All systems operational
+                </div>
+            </div>
+
+            <!-- Widget 4 -->
+            <div class="widget-card">
+                <div class="widget-header">
+                    <span>Pending Tickets</span>
+                    <i class="fas fa-ticket-alt" style="color: #f59e0b;"></i>
+                </div>
+                <div class="widget-value">14</div>
+                <div class="widget-trend trend-down">
+                    <i class="fas fa-exclamation-circle"></i> Requires attention
+                </div>
+            </div>
+        </div>
+
+        <div class="main-grid">
+            <!-- Facilities Table -->
+            <section class="activity-section">
+                <h3 class="section-title">Global Facilities Status</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Facility Name</th>
+                            <th>Location</th>
+                            <th>Output (Daily)</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Alpha H2 Plant</td>
+                            <td>Berlin, Germany</td>
+                            <td>12,400 kWh</td>
+                            <td><span class="status-badge status-active">Operational</span></td>
+                            <td><a href="#" style="color: var(--primary); text-decoration: none;">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>Omega Storage Facility</td>
+                            <td>Nevada, USA</td>
+                            <td>8,200 kWh</td>
+                            <td><span class="status-badge status-pending">Maintenance</span></td>
+                            <td><a href="#" style="color: var(--primary); text-decoration: none;">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>North Sea Electrolyzer</td>
+                            <td>Offshore, UK</td>
+                            <td>24,000 kWh</td>
+                            <td><span class="status-badge status-active">Operational</span></td>
+                            <td><a href="#" style="color: var(--primary); text-decoration: none;">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>Tokyo Distribution Hub</td>
+                            <td>Tokyo, Japan</td>
+                            <td>0 kWh</td>
+                            <td><span class="status-badge status-offline">Offline</span></td>
+                            <td><a href="#" style="color: var(--primary); text-decoration: none;">View</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Recent System Alerts -->
+            <section class="activity-section">
+                <h3 class="section-title">System Alerts</h3>
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <div style="padding: 15px; border-radius: 8px; background: rgba(245, 158, 11, 0.1); border-left: 3px solid #f59e0b;">
+                        <h5 style="color: #f59e0b; margin-bottom: 5px;">Storage Capacity Warning</h5>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Nevada plant nearing 90% capacity.</p>
+                    </div>
+                    <div style="padding: 15px; border-radius: 8px; background: rgba(248, 113, 113, 0.1); border-left: 3px solid #f87171;">
+                        <h5 style="color: #f87171; margin-bottom: 5px;">Connection Lost</h5>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Tokyo hub is unresponsive since 04:00 AM.</p>
+                    </div>
+                    <div style="padding: 15px; border-radius: 8px; background: rgba(0, 229, 255, 0.1); border-left: 3px solid var(--primary);">
+                        <h5 style="color: var(--primary); margin-bottom: 5px;">System Update Complete</h5>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Core services updated to v2.4 successfully.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const email = sessionStorage.getItem('loggedInEmail');
+            if(email) {
+                document.getElementById('user-email-display').textContent = email;
+            }
+
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const sidebar = document.querySelector('.sidebar');
+            if(mobileBtn && sidebar) {
+                mobileBtn.addEventListener('click', () => {
+                    sidebar.classList.toggle('active');
+                });
+                
+                document.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 768 && sidebar.classList.contains('active')) {
+                        if (!sidebar.contains(e.target) && !mobileBtn.contains(e.target)) {
+                            sidebar.classList.remove('active');
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

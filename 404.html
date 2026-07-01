@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Hydrogen Energy Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/404.css">
+</head>
+<body>
+    <div id="preloader">
+        <div class="loader-spinner"><img src="images/logo.png" alt="Loading" class="spinner-center-logo"></div>
+    </div>
+
+    <div id="navbar-placeholder"></div>
+
+    <section class="error-section">
+        <div class="container relative z-10 error-content-center">
+            <h1 class="error-code-glow">404</h1>
+            <h2 class="error-title-center">Page Not Found</h2>
+            <p class="error-desc-serif">Oops! The page you are looking for doesn't exist, has been moved, or is temporarily unavailable.</p>
+            <div class="error-buttons-center">
+                <button onclick="history.back()" class="btn-rect-outline error-btn">
+                    <i class="fas fa-arrow-left"></i> GO BACK
+                </button>
+                <a href="home.html" class="btn-rect-cyan error-btn">
+                    GO TO DASHBOARD <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Custom 404 Page Animations
+        document.addEventListener("DOMContentLoaded", () => {
+            // 404 Initial Bounce Entry + Continuous Jumping
+            gsap.fromTo(".error-code-glow", 
+                { opacity: 0, scale: 0.5, y: -50 }, 
+                { opacity: 1, scale: 1, y: 0, duration: 1, ease: "bounce.out" }
+            );
+            gsap.to(".error-code-glow", { 
+                y: -25, 
+                duration: 0.6, 
+                repeat: -1, 
+                yoyo: true, 
+                ease: "power1.inOut",
+                delay: 1 
+            });
+            
+            // Page Not Found Entry + Left to Right Sway
+            gsap.fromTo(".error-title-center", 
+                { opacity: 0, x: -30 }, 
+                { opacity: 1, x: 0, duration: 1, ease: "power3.out", delay: 0.4 }
+            );
+            gsap.to(".error-title-center", {
+                x: 20,
+                duration: 2,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut",
+                delay: 1.4
+            });
+            
+            // Description Entry
+            gsap.fromTo(".error-desc-serif", 
+                { opacity: 0 }, 
+                { opacity: 1, duration: 1, ease: "power3.out", delay: 0.7 }
+            );
+            
+            // NOTE: Button entry animations removed as requested. They will not move on load, only hover.
+            
+            // Subtle Glitch Effect
+            const glitchTl = gsap.timeline({repeat: -1, repeatDelay: 3, delay: 2});
+            glitchTl.to(".error-code-glow", {opacity: 0.5, duration: 0.05})
+                    .to(".error-code-glow", {opacity: 1, duration: 0.05})
+                    .to(".error-code-glow", {opacity: 0.8, duration: 0.05})
+                    .to(".error-code-glow", {opacity: 1, duration: 0.05});
+        });
+    </script>
+</body>
+</html>

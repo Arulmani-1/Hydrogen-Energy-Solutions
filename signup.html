@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - STACKLY</title>
+    <!-- Sign Up Specific CSS -->
+    <link rel="stylesheet" href="css/signup.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-spinner"><img src="images/logo.png" alt="Loading" class="spinner-center-logo"></div>
+    </div>
+    <div class="signup-wrapper">
+        <!-- Left Side: Image Banner -->
+        <div class="signup-banner">
+            <div class="banner-overlay"></div>
+            <div class="banner-content">
+                <a href="home.html" style="display: inline-block; margin-bottom: 20px;">
+                    <img src="images/logo.png" alt="STACKLY" style="height: 55px; width: auto;">
+                </a>
+                <h3 class="welcome-text">Join the Revolution!</h3>
+                <p class="banner-desc">Create an account to start managing your green hydrogen energy operations globally.</p>
+                <a href="home.html" class="btn-back">BACK TO HOME</a>
+            </div>
+        </div>
+
+        <!-- Right Side: Sign Up Form -->
+        <div class="signup-form-container">
+            <div class="form-wrapper">
+                <h2 class="form-title">Create an account</h2>
+                <p class="form-subtitle">Already have an account? <a href="login.html" class="login-link-text">Login</a></p>
+
+                <form class="signup-form">
+                    <div class="input-group">
+                        <label for="role">Register as</label>
+                        <select id="role" name="role" class="form-control">
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="fname">First Name</label>
+                            <input type="text" id="fname" name="fname" class="form-control" placeholder="First Name" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="lname">Last Name</label>
+                            <input type="text" id="lname" name="lname" class="form-control" placeholder="Last Name" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter Your Email" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Create a Password" required>
+                    </div>
+
+                    <div class="form-actions-row">
+                        <label class="terms-agree">
+                            <input type="checkbox" name="terms" required>
+                            <span>I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="terms-link">Privacy Policy</a>.</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-signup">CREATE ACCOUNT</button>
+
+                    <div class="divider">
+                        <span>Or register with</span>
+                    </div>
+
+                    <div class="social-signup">
+                        <button type="button" class="btn-social" onclick="window.location.href='404.html';"><i class="fab fa-facebook-f" style="color: #1877F2;"></i> Facebook</button>
+                        <button type="button" class="btn-social" onclick="window.location.href='404.html';"><i class="fab fa-google" style="color: #DB4437;"></i> Google</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const preloader = document.getElementById('preloader');
+            if(preloader) {
+                setTimeout(() => {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => preloader.style.display = 'none', 800);
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+</html>

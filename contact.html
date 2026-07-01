@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Hydrogen Energy Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="loader-spinner"><img src="images/logo.png" alt="Loading" class="spinner-center-logo"></div>
+    </div>
+
+    <div id="navbar-placeholder"></div>
+
+    <section class="inner-hero relative flex items-center justify-center text-center">
+        <!-- Abstract dark map background -->
+        <img src="images/images5.jpg" alt="Wind Turbines at Sunset" class="hero-video"
+            style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;">
+        <div class="hero-overlay-dark" style="z-index:1;"></div>
+
+        <div class="container relative z-10 pt-32 pb-20"
+            style="padding-top: 120px; position: relative; z-index: 10; text-align: center;">
+            <h1 class="title-large" style="color: #ffffff !important; margin-top: 80px;">Get in Touch</h1>
+            <p class="mx-auto text-lg mt-4" style="color: #ffffff !important; margin-top: 20px;">Our global team of
+                engineers and energy specialists are ready to assist you.</p>
+        </div>
+    </section>
+
+    <section class="contact-us-section">
+        <div class="container">
+            <div class="contact-grid">
+
+                <!-- Left Content -->
+                <div class="contact-left">
+                    <h5 class="contact-subtitle">AERIAL PHOTOGRAPHY</h5>
+                    <h2 class="contact-title">Follow Us, Like Us</h2>
+                    <p class="contact-desc">Capitalize on low hanging fruit to identify a ballpark value added activity
+                        to beta test. Override the digital divide with additional clickthroughs from DevOps.
+                        Nanotechnology immersion along the information highway will close the loop on focusing solely on
+                        the bottom line.</p>
+
+                    <div class="contact-socials">
+                        <a href="404.html"><i class="fab fa-facebook-f"></i></a>
+                        <a href="404.html"><i class="fab fa-twitter"></i></a>
+                        <a href="404.html"><i class="fab fa-instagram"></i></a>
+                        <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Right Content (Form) -->
+                <div class="contact-right">
+                    <form class="contact-form-clean">
+                        <div class="form-group">
+                            <label>Your Name (required)</label>
+                            <input type="text" class="clean-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Your Email (required)</label>
+                            <input type="email" class="clean-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Subject</label>
+                            <input type="text" class="clean-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Your Message</label>
+                            <textarea class="clean-input" rows="5"></textarea>
+                        </div>
+                        <button type="button" class="btn-cyan" onclick="window.location.href='404.html';">SEND</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Init tilts
+        const cards = document.querySelectorAll('.tilt-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const rotateX = ((y - rect.height / 2) / rect.height) * -10;
+                const rotateY = ((x - rect.width / 2) / rect.width) * 10;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+            });
+        });
+    </script>
+</body>
+
+</html>

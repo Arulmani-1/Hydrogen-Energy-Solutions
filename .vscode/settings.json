@@ -1,0 +1,9 @@
+{
+    "liveServer.settings.ignoreFiles": [
+        ".vscode/**"
+    ],
+    "liveServer.settings.root": "/",
+    "liveServer.settings.NoBrowser": false,
+    "liveServer.settings.CustomBrowser": "chrome",
+    "liveServer.settings.defaultFile": "home.html"
+}

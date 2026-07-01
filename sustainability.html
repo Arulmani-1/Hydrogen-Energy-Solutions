@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainability | Hydrogen Energy Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js for interactive charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/sustainability.css">
+</head>
+<body>
+    <div id="preloader">
+        <div class="loader-spinner"><img src="images/logo.png" alt="Loading" class="spinner-center-logo"></div>
+    </div>
+
+    <div id="navbar-placeholder"></div>
+
+    <section class="inner-hero relative flex items-center justify-center text-center">
+        <video autoplay muted loop playsinline class="hero-video" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;"><source src="videos/hero-bg.mp4" type="video/mp4"></video>
+        <div class="hero-overlay-dark" style="z-index:1;"></div>
+        
+        <div class="container relative z-10 pt-32 pb-20" style="padding-top: 120px; position: relative; z-index: 10; text-align: center;">
+            <h1 class="title-large" style="color: #ffffff !important; margin-top: 80px;">Commitment to the Planet</h1>
+            <p class="mx-auto text-lg mt-4" style="color: #ffffff !important; margin-top: 20px;">Leading the charge towards Net Zero. Our Environmental, Social, and Governance (ESG) strategy.</p>
+        </div>
+    </section>
+
+    <!-- Goals Section -->
+    <section class="goals-section section-padding">
+        <div class="container">
+            <h2 class="section-title text-center">Our 2030 Net Zero Goals</h2>
+            
+            <div class="goals-grid mt-16">
+                <!-- Goal 1 -->
+                <div class="goal-card glass-panel tilt-card text-center reveal">
+                    <div class="goal-icon text-accent"><i class="fas fa-leaf"></i></div>
+                    <h3 class="counter-wrap"><span class="counter" data-target="100">0</span>%</h3>
+                    <p class="text-primary font-bold mb-4">Green Energy</p>
+                    <p class="text-gray text-sm">Transitioning all internal manufacturing and operations to 100% renewable power sources.</p>
+                </div>
+                
+                <!-- Goal 2 -->
+                <div class="goal-card glass-panel tilt-card text-center reveal" style="transition-delay: 0.1s">
+                    <div class="goal-icon text-primary"><i class="fas fa-tint"></i></div>
+                    <h3 class="counter-wrap"><span class="counter" data-target="80">0</span>%</h3>
+                    <p class="text-primary font-bold mb-4">Water Recycled</p>
+                    <p class="text-gray text-sm">Implementing closed-loop water systems in all our electrolysis plants to preserve local water tables.</p>
+                </div>
+
+                <!-- Goal 3 -->
+                <div class="goal-card glass-panel tilt-card text-center reveal" style="transition-delay: 0.2s">
+                    <div class="goal-icon text-white"><i class="fas fa-recycle"></i></div>
+                    <h3 class="counter-wrap"><span class="counter" data-target="95">0</span>%</h3>
+                    <p class="text-primary font-bold mb-4">Material Circularity</p>
+                    <p class="text-gray text-sm">Recycling rare-earth metals and components from end-of-life fuel cells and electrolyzers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Charts Section -->
+    <section class="charts-section section-padding bg-surface">
+        <div class="container">
+            <div class="chart-layout flex flex-col md:flex-row gap-12 items-center">
+                <div class="chart-content w-full md:w-1/2 reveal">
+                    <h4 class="text-accent-gradient">Global Impact</h4>
+                    <h2 class="mb-6">Carbon Reduction Trajectory</h2>
+                    <p class="text-gray mb-6">Through the deployment of our green hydrogen infrastructure globally, we have aggressively accelerated the displacement of fossil fuels in heavy industry.</p>
+                    <p class="text-gray">By 2030, our active projects are projected to offset over 50 Million tons of CO2 annually—equivalent to removing 10 million passenger vehicles from the road.</p>
+                </div>
+                
+                <div class="chart-container w-full md:w-1/2 glass-panel p-6 reveal">
+                    <canvas id="co2Chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/sustainability.js"></script>
+</body>
+</html>

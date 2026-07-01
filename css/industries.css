@@ -1,0 +1,129 @@
+/* =========================================
+   INDUSTRIES PAGE STYLES 
+   ========================================= */
+
+.inner-hero {
+    height: 60vh;
+    min-height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-bg-image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 0;
+}
+
+.hero-overlay-dark {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(3,10,17,0.7), var(--dark-bg));
+    z-index: 1;
+}
+
+.title-large {
+    font-size: clamp(3rem, 5vw, 5rem);
+    margin-bottom: 20px;
+}
+
+/* Industry Grid */
+.industry-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.industry-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.industry-img {
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    z-index: 1;
+}
+
+.industry-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.industry-icon {
+    position: absolute;
+    bottom: -25px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--dark-bg);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    z-index: 2;
+    transition: transform 0.4s ease;
+}
+
+.industry-content {
+    position: relative;
+    margin-top: -30px;
+    padding: 50px 30px 30px 30px;
+    z-index: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.industry-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.industry-content p {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Hover Effects */
+.industry-card:hover .industry-img img {
+    transform: scale(1.1);
+}
+
+.industry-card:hover .industry-icon {
+    transform: translateY(-10px) scale(1.1);
+}
+
+.industry-card:hover .industry-content {
+    transform: translateY(10px);
+    box-shadow: 0 15px 30px rgba(0, 229, 255, 0.1);
+    border-color: rgba(0, 229, 255, 0.3);
+}
+
+.bg-surface { background: var(--dark-surface); }
+.max-w-4xl { max-width: 56rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mb-10 { margin-bottom: 2.5rem; }
+.text-center { text-align: center; }
+
+@media (max-width: 1024px) {
+    .industry-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .industry-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Insights | Hydrogen Energy Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/news.css">
+</head>
+<body>
+    <div id="preloader">
+        <div class="loader-spinner"><img src="images/logo.png" alt="Loading" class="spinner-center-logo"></div>
+    </div>
+
+    <div id="navbar-placeholder"></div>
+
+    <section class="inner-hero relative flex items-center justify-center text-center">
+        <video autoplay muted loop playsinline class="hero-video" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;"><source src="videos/hero-bg.mp4" type="video/mp4"></video>
+        <div class="hero-overlay-dark" style="z-index:1;"></div>
+        
+        <div class="container relative z-10 pt-32 pb-20" style="padding-top: 120px; position: relative; z-index: 10; text-align: center;">
+            <h1 class="title-large" style="color: #ffffff !important; margin-top: 80px;">News & Insights</h1>
+            <p class="mx-auto text-lg mt-4" style="color: #ffffff !important; margin-top: 20px;">The latest updates, press releases, and industry insights from the forefront of the hydrogen revolution.</p>
+        </div>
+    </section>
+
+    <section class="news-section section-padding">
+        <div class="container flex flex-col lg:flex-row gap-12">
+            
+            <!-- Main Content -->
+            <div class="news-main w-full lg:w-2/3">
+                <!-- Featured Article -->
+                <div class="featured-article glass-panel rounded-2xl overflow-hidden reveal mb-10">
+                    <div class="article-img relative h-80">
+                        <img src="images/images7.jpg" alt="Featured News" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-primary text-dark px-3 py-1 rounded font-bold text-sm uppercase">Press Release</div>
+                    </div>
+                    <div class="p-8">
+                        <div class="text-gray text-sm mb-3"><i class="far fa-calendar-alt mr-2"></i> June 28, 2026</div>
+                        <h2 class="text-3xl mb-4 hover-text-primary transition-colors cursor-pointer">Hydrogen Energy Solutions Secures $2B Contract for Trans-Atlantic Green Pipeline</h2>
+                        <p class="text-gray mb-6">In a landmark deal, we have partnered with major European utility providers to develop the world's first dedicated green hydrogen subsea pipeline connecting North America to Europe...</p>
+                        <a href="404.html" class="btn-outline magnetic">Read Full Story</a>
+                    </div>
+                </div>
+
+                <!-- Grid Articles -->
+                <div class="news-grid grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="news-card glass-panel rounded-xl overflow-hidden reveal">
+                        <div class="h-48 overflow-hidden">
+                            <img src="images/images8.jpg" class="w-full h-full object-cover transition-transform hover:scale-110" alt="News">
+                        </div>
+                        <div class="p-6">
+                            <div class="text-gray text-xs mb-2 uppercase">Industry Update</div>
+                            <h3 class="text-xl mb-3 hover-text-primary transition-colors cursor-pointer">Maritime Sector Adopts H2 Fuel Cells at Record Pace</h3>
+                            <a href="404.html" class="text-primary text-sm font-bold uppercase hover:underline">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="news-card glass-panel rounded-xl overflow-hidden reveal" style="transition-delay: 0.1s">
+                        <div class="h-48 overflow-hidden">
+                            <img src="images/images1.jpg" class="w-full h-full object-cover transition-transform hover:scale-110" alt="News">
+                        </div>
+                        <div class="p-6">
+                            <div class="text-gray text-xs mb-2 uppercase">Technology</div>
+                            <h3 class="text-xl mb-3 hover-text-primary transition-colors cursor-pointer">Next-Gen PEM Electrolyzer Reaches 90% Efficiency</h3>
+                            <a href="404.html" class="text-primary text-sm font-bold uppercase hover:underline">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="news-card glass-panel rounded-xl overflow-hidden reveal">
+                        <div class="h-48 overflow-hidden">
+                            <img src="images/images2.jpg" class="w-full h-full object-cover transition-transform hover:scale-110" alt="News">
+                        </div>
+                        <div class="p-6">
+                            <div class="text-gray text-xs mb-2 uppercase">Sustainability</div>
+                            <h3 class="text-xl mb-3 hover-text-primary transition-colors cursor-pointer">Green Steel Production Triples in Q2 2026</h3>
+                            <a href="404.html" class="text-primary text-sm font-bold uppercase hover:underline">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="news-card glass-panel rounded-xl overflow-hidden reveal" style="transition-delay: 0.1s">
+                        <div class="h-48 overflow-hidden">
+                            <img src="images/images3.jpg" class="w-full h-full object-cover transition-transform hover:scale-110" alt="News">
+                        </div>
+                        <div class="p-6">
+                            <div class="text-gray text-xs mb-2 uppercase">Company News</div>
+                            <h3 class="text-xl mb-3 hover-text-primary transition-colors cursor-pointer">AI Lab Opens in Silicon Valley for Grid Optimization</h3>
+                            <a href="404.html" class="text-primary text-sm font-bold uppercase hover:underline">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="news-sidebar w-full lg:w-1/3">
+                <!-- Search -->
+                <div class="glass-panel p-6 rounded-xl mb-8 reveal">
+                    <h4 class="mb-4">Search News</h4>
+                    <div class="flex">
+                        <input type="text" placeholder="Search..." class="w-full bg-dark border border-gray-700 text-white p-3 rounded-l-lg outline-none focus:border-primary transition-colors">
+                        <button class="bg-primary text-dark p-3 rounded-r-lg hover:bg-white transition-colors" onclick="window.location.href='404.html';"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+
+                <!-- Categories -->
+                <div class="glass-panel p-6 rounded-xl mb-8 reveal" style="transition-delay: 0.1s">
+                    <h4 class="mb-4">Categories</h4>
+                    <ul class="flex flex-col gap-3">
+                        <li><a href="404.html" class="flex justify-between text-gray hover:text-primary transition-colors"><span>Press Releases</span> <span>(12)</span></a></li>
+                        <li><a href="404.html" class="flex justify-between text-gray hover:text-primary transition-colors"><span>Industry Updates</span> <span>(24)</span></a></li>
+                        <li><a href="404.html" class="flex justify-between text-gray hover:text-primary transition-colors"><span>Technology</span> <span>(18)</span></a></li>
+                        <li><a href="404.html" class="flex justify-between text-gray hover:text-primary transition-colors"><span>Sustainability</span> <span>(9)</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="glass-panel p-6 rounded-xl reveal" style="transition-delay: 0.2s">
+                    <h4 class="text-accent mb-2">Subscribe</h4>
+                    <p class="text-sm text-gray mb-4">Get the latest insights delivered to your inbox.</p>
+                    <input type="email" id="news-subscribe-email" placeholder="Email Address" class="w-full bg-dark border border-gray-700 text-white p-3 rounded-lg mb-3 outline-none focus:border-primary transition-colors">
+                    <button class="btn-primary w-full text-center justify-center magnetic" onclick="if(document.getElementById('news-subscribe-email').value) { alert('Email subscription successfully!'); document.getElementById('news-subscribe-email').value=''; }">Subscribe Now</button>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

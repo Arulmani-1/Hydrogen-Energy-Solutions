@@ -1,0 +1,320 @@
+/* =========================================
+   PREMIUM NAVBAR STYLES 
+   ========================================= */
+
+.premium-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: var(--z-header);
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    
+    /* Full width dark background matching image */
+    background: var(--dark-bg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.premium-navbar.scrolled {
+    background: var(--dark-bg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.nav-container {
+    padding: 15px 4%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: padding 0.5s ease;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.premium-navbar.scrolled .nav-container {
+    padding: 10px 4%;
+}
+
+/* Logo */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: calc(var(--z-header) + 1);
+}
+
+.logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--white-color);
+}
+
+.logo-highlight {
+    color: var(--primary-color);
+    font-weight: 300;
+}
+
+/* Desktop Navigation - PERFECT HORIZONTAL */
+.desktop-nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(10px, 1.5vw, 24px); /* Fluid gap prevents wrapping */
+    white-space: nowrap; /* CRITICAL: Never wrap */
+}
+
+.nav-link {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--white-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Premium Hover Underline Effect */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: #00A6EB; /* Cyan matching image */
+    transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    border-radius: 2px;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+.nav-caret {
+    font-size: 0.7rem;
+    opacity: 0.7;
+    margin-top: 2px;
+}
+
+/* Simple Dropdown Menu */
+.has-dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: var(--dark-bg);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    min-width: 180px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    padding: 10px 0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    z-index: var(--z-dropdown);
+    display: flex;
+    flex-direction: column;
+}
+
+.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    top: 100%;
+}
+
+.dropdown-menu li a {
+    color: var(--white-color);
+    padding: 10px 20px;
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background 0.2s;
+}
+
+.dropdown-menu li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #00A6EB;
+}
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr;
+    gap: 30px;
+}
+
+.mega-col h4 {
+    font-family: var(--font-button);
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 10px;
+}
+
+.mega-col ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.mega-col ul li a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.mega-col ul li a:hover {
+    color: var(--white-color);
+    transform: translateX(5px);
+}
+
+.mega-image-wrapper {
+    height: 100%;
+    border-radius: 12px;
+    background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80') center/cover;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+}
+
+.mega-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--dark-bg), transparent);
+}
+
+.mega-image-wrapper span {
+    position: relative;
+    z-index: 1;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--white-color);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+
+/* Nav Actions */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    z-index: calc(var(--z-header) + 1);
+}
+
+.login-link {
+    color: var(--white-color);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.login-link:hover {
+    opacity: 0.8;
+}
+
+.btn-white {
+    background: #fff;
+    color: #000;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-white:hover {
+    background: #eee;
+    transform: scale(1.05);
+}
+
+.mobile-login {
+    display: none;
+}
+
+/* Mobile Toggle */
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.mobile-toggle .bar {
+    width: 30px;
+    height: 2px;
+    background: var(--white-color);
+    transition: 0.3s;
+}
+
+/* Responsiveness - Strictly hide nav and show toggle under 1200px to prevent wrapping on small laptops */
+@media (max-width: 1200px) {
+    .desktop-nav {
+        display: none; /* In a full app, this would turn into a slide-out drawer */
+    }
+    
+    .desktop-nav.active {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--dark-bg);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .desktop-nav.active .nav-links {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .mobile-toggle {
+        display: flex;
+    }
+
+    .nav-cta, .login-link {
+        display: none; /* Hide CTA and desktop login on mobile to save space */
+    }
+
+    .mobile-login {
+        display: block; /* Show login inside the hamburger menu */
+        margin-top: 10px;
+    }
+}

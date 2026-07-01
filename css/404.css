@@ -1,0 +1,103 @@
+/* =========================================
+   404 ERROR PAGE STYLES (CENTERED)
+   ========================================= */
+
+.error-section {
+    min-height: 100vh;
+    padding: 150px 0 100px;
+    background-color: #0c141d; /* Solid dark navy background matching image */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.error-content-center {
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.error-code-glow {
+    font-size: clamp(8rem, 15vw, 15rem);
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 20px;
+    color: #2ab5ff; /* Cyan/blue color from image */
+    text-shadow: 0 0 60px rgba(42, 181, 255, 0.6);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: -2px;
+}
+
+.error-title-center {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.error-desc-serif {
+    font-size: 1.125rem;
+    line-height: 1.5;
+    margin-bottom: 40px;
+    color: #aebfd0;
+    font-family: 'Georgia', serif; /* Serif font as seen in the new image */
+    max-width: 500px;
+}
+
+.error-buttons-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-rect-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 25px;
+    width: 220px;
+    border: 1px solid #ffffff;
+    border-radius: 4px; /* Rectangular with slight rounding */
+    background: transparent;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-rect-outline:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+.btn-rect-cyan {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 25px;
+    width: 220px;
+    border: none;
+    border-radius: 4px;
+    /* Split gradient matching the image */
+    background: linear-gradient(110deg, #19cbf4 60%, #0fdbd5 60%); 
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-rect-cyan:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}

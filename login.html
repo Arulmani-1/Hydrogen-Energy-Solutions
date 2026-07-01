@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - STACKLY</title>
+    <!-- Login Specific CSS -->
+    <link rel="stylesheet" href="css/login.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-spinner"><img src="images/logo.png" alt="Loading" class="spinner-center-logo"></div>
+    </div>
+    <div class="login-wrapper">
+        <!-- Left Side: Image Banner -->
+        <div class="login-banner">
+            <div class="banner-overlay"></div>
+            <div class="banner-content">
+                <a href="home.html" style="display: inline-block; margin-bottom: 20px;">
+                    <img src="images/logo.png" alt="STACKLY" style="height: 55px; width: auto;">
+                </a>
+                <h3 class="welcome-text">Welcome back!</h3>
+                <p class="banner-desc">Access your dashboard and manage your hydrogen energy operations</p>
+                <a href="home.html" class="btn-back">BACK TO HOME</a>
+            </div>
+        </div>
+
+        <!-- Right Side: Login Form -->
+        <div class="login-form-container">
+            <div class="form-wrapper">
+                <h2 class="form-title">Login to your account</h2>
+                <p class="form-subtitle">Don't have an account? <a href="signup.html" class="signup-link">Sign Up</a></p>
+
+                <form class="login-form">
+                    <div class="input-group">
+                        <label for="role">Login as</label>
+                        <select id="role" name="role" class="form-control">
+                            <option value="admin">Admin</option>
+                            <option value="user">User</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter Your Email" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password" required>
+                    </div>
+
+                    <div class="form-actions-row">
+                        <label class="remember-me">
+                            <input type="checkbox" name="remember">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="btn-login">LOGIN</button>
+
+                    <div class="divider">
+                        <span>Or create with</span>
+                    </div>
+
+                    <div class="social-login">
+                        <button type="button" class="btn-social" onclick="window.location.href='404.html';"><i class="fab fa-facebook-f" style="color: #1877F2;"></i> Facebook</button>
+                        <button type="button" class="btn-social" onclick="window.location.href='404.html';"><i class="fab fa-google" style="color: #DB4437;"></i> Google</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const preloader = document.getElementById('preloader');
+            if(preloader) {
+                setTimeout(() => {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => preloader.style.display = 'none', 800);
+                }, 1000);
+            }
+
+            // Role-based login redirection
+            const loginForm = document.querySelector('.login-form');
+            if(loginForm) {
+                loginForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    const role = document.getElementById('role').value;
+                    const email = document.getElementById('email').value;
+                    const password = document.getElementById('password').value;
+
+                    if (email && password) {
+                        sessionStorage.setItem('loggedInEmail', email);
+                        if (role === 'admin') {
+                            window.location.href = 'admin_dashboard.html';
+                        } else {
+                            window.location.href = 'user_dashboard.html';
+                        }
+                    } else {
+                        alert("Please enter both email and password.");
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

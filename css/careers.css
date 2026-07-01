@@ -1,0 +1,110 @@
+/* =========================================
+   CAREERS PAGE STYLES 
+   ========================================= */
+
+.inner-hero {
+    height: 60vh;
+    min-height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-bg-image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 0;
+}
+
+.hero-overlay-dark {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(3,10,17,0.7), var(--dark-bg));
+    z-index: 1;
+}
+
+.title-large {
+    font-size: clamp(3rem, 5vw, 5rem);
+    margin-bottom: 20px;
+}
+
+/* Tailwind-ish utility mappings used in Careers */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.md\:flex-row { flex-direction: row; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.items-center { align-items: center; }
+.text-center { text-align: center; }
+.gap-8 { gap: 2rem; }
+.gap-4 { gap: 1rem; }
+.grid { display: grid; }
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.w-16 { width: 4rem; }
+.h-16 { height: 4rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.mb-16 { margin-bottom: 4rem; }
+.mb-12 { margin-bottom: 3rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-0 { margin-bottom: 0; }
+.mt-12 { margin-top: 3rem; }
+.mt-6 { margin-top: 1.5rem; }
+.md\:mt-0 { margin-top: 0; }
+.mr-2 { margin-right: 0.5rem; }
+.ml-1 { margin-left: 0.25rem; }
+.p-8 { padding: 2rem; }
+.p-6 { padding: 1.5rem; }
+.p-3 { padding: 0.75rem; }
+.rounded-full { border-radius: 9999px; }
+.rounded-xl { border-radius: 0.75rem; }
+.rounded { border-radius: 0.25rem; }
+.bg-primary { background-color: var(--primary-color); }
+.bg-accent { background-color: var(--accent-color); }
+.bg-white { background-color: var(--white-color); }
+.bg-dark { background-color: var(--dark-bg); }
+.text-dark { color: var(--dark-bg); }
+.text-gray { color: rgba(255,255,255,0.7); }
+.text-primary { color: var(--primary-color); }
+.text-2xl { font-size: 1.5rem; }
+.text-xl { font-size: 1.25rem; }
+.text-sm { font-size: 0.875rem; }
+.font-bold { font-weight: 700; }
+.uppercase { text-transform: uppercase; }
+.tracking-wider { letter-spacing: 0.05em; }
+.border { border-width: 1px; }
+.border-gray-700 { border-color: rgba(255,255,255,0.2); }
+.border-primary { border-color: var(--primary-color); }
+.text-white { color: #fff; }
+.outline-none { outline: 2px solid transparent; outline-offset: 2px; }
+.focus\:border-primary:focus { border-color: var(--primary-color); }
+.hover\:underline:hover { text-decoration-line: underline; }
+.transition-transform { transition-property: transform; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 300ms; }
+.hover\:-translate-y-1:hover { transform: translateY(-0.25rem); }
+.hover\:border-primary:hover { border-color: var(--primary-color); }
+
+/* Benefits Tilt cards */
+.tilt-card {
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+/* Job items interaction */
+.job-item {
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+}
+
+.job-item:hover {
+    box-shadow: 0 10px 20px rgba(0, 229, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+    .md\:grid-cols-3 { grid-template-columns: 1fr; }
+    .md\:flex-row { flex-direction: column; }
+    .md\:mt-0 { margin-top: 1.5rem; }
+}

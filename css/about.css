@@ -1,0 +1,221 @@
+/* =========================================
+   ABOUT PAGE STYLES 
+   ========================================= */
+
+.inner-hero {
+    height: 60vh;
+    min-height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-bg-image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 0;
+}
+
+.hero-overlay-dark {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(3,10,17,0.8), var(--dark-bg));
+    z-index: 1;
+}
+
+.title-large {
+    font-size: clamp(3rem, 5vw, 5rem);
+    margin-bottom: 20px;
+}
+
+/* About Grid */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.image-stack {
+    position: relative;
+    height: 500px;
+}
+
+.img-back {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 20px;
+    opacity: 0.6;
+    transform: translateZ(-50px);
+}
+
+.img-front {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 70%;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 5px solid var(--dark-bg);
+    box-shadow: var(--shadow-lg);
+    transform: translateZ(50px);
+}
+
+/* Values Grid */
+.bg-surface {
+    background: var(--dark-surface);
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.value-card {
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 229, 255, 0.1);
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+}
+
+/* Leadership Grid */
+.leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.leader-img-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.leader-img-wrapper img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.leader-card:hover .leader-img-wrapper img {
+    transform: scale(1.05);
+}
+
+.leader-socials {
+    position: absolute;
+    bottom: -80px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    transition: all 0.4s ease;
+    opacity: 0;
+}
+
+.leader-card:hover .leader-socials {
+    bottom: 0;
+    opacity: 1;
+}
+
+.leader-socials a {
+    width: 35px;
+    height: 35px;
+    background: var(--primary-color);
+    color: var(--dark-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.leader-info h3 {
+    margin-bottom: 5px;
+}
+
+/* Map */
+.map-container {
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.map-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+}
+
+.pin {
+    position: absolute;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    animation: bounce 2s infinite;
+}
+
+.pin::after {
+    content: attr(data-location);
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--white-color);
+    color: var(--dark-bg);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    opacity: 0;
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
+}
+
+.pin:hover::after {
+    opacity: 1;
+}
+
+.pin-us { top: 30%; left: 25%; }
+.pin-eu { top: 25%; left: 50%; }
+.pin-asia { top: 35%; left: 75%; }
+.pin-aus { top: 70%; left: 85%; }
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@media (max-width: 1024px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .values-grid { grid-template-columns: repeat(2, 1fr); }
+    .leadership-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .values-grid { grid-template-columns: 1fr; }
+    .leadership-grid { grid-template-columns: 1fr; }
+    .mission-vision { flex-direction: column; }
+}

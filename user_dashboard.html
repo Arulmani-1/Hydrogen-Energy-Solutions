@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - STACKLY</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/user_dashboard.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <a href="home.html" class="sidebar-logo">
+            <img src="images/logo.png" alt="STACKLY Logo">
+        </a>
+        
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active">
+                <i class="fas fa-home"></i>
+                <span>Overview</span>
+            </a>
+            <a href="404.html" class="nav-item">
+                <i class="fas fa-bolt"></i>
+                <span>Energy Usage</span>
+            </a>
+            <a href="404.html" class="nav-item">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <span>Billing & Invoices</span>
+            </a>
+            <a href="404.html" class="nav-item">
+                <i class="fas fa-headset"></i>
+                <span>Support</span>
+            </a>
+            <a href="404.html" class="nav-item">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="topbar">
+            <button id="mobile-menu-btn" class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <h1 class="page-title">Welcome back, John!</h1>
+            <div class="topbar-actions">
+                <span id="user-email-display" class="user-email-display"></span>
+                <a href="#" class="btn-logout" onclick="sessionStorage.removeItem('loggedInEmail'); window.location.href='home.html'; return false;">Logout</a>
+            </div>
+        </header>
+
+        <div class="dashboard-grid">
+            <!-- Widget 1 -->
+            <div class="widget-card">
+                <div class="widget-header">
+                    <span>Current Usage</span>
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="widget-value">450 kWh</div>
+                <div class="widget-trend trend-up">
+                    <i class="fas fa-arrow-up"></i> 12% vs last month
+                </div>
+            </div>
+
+            <!-- Widget 2 -->
+            <div class="widget-card">
+                <div class="widget-header">
+                    <span>Active Plan</span>
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div class="widget-value">Green Basic</div>
+                <div class="widget-trend" style="color: var(--text-muted);">
+                    Renews in 14 days
+                </div>
+            </div>
+
+            <!-- Widget 3 -->
+            <div class="widget-card">
+                <div class="widget-header">
+                    <span>Carbon Saved</span>
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+                <div class="widget-value">1.2 Tons</div>
+                <div class="widget-trend trend-up">
+                    <i class="fas fa-arrow-up"></i> Awesome progress!
+                </div>
+            </div>
+        </div>
+
+        <section class="activity-section">
+            <h3 class="section-title">Recent Activity</h3>
+            <ul class="activity-list">
+                <li class="activity-item">
+                    <div class="activity-info">
+                        <div class="activity-icon"><i class="fas fa-file-invoice"></i></div>
+                        <div class="activity-details">
+                            <h5>Invoice #4029 Generated</h5>
+                            <p>June 28, 2026</p>
+                        </div>
+                    </div>
+                    <div class="activity-status">Paid</div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-info">
+                        <div class="activity-icon"><i class="fas fa-exchange-alt"></i></div>
+                        <div class="activity-details">
+                            <h5>Plan Upgraded to Green Basic</h5>
+                            <p>June 15, 2026</p>
+                        </div>
+                    </div>
+                    <div class="activity-status">Completed</div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-info">
+                        <div class="activity-icon"><i class="fas fa-headset"></i></div>
+                        <div class="activity-details">
+                            <h5>Support Ticket #102 Closed</h5>
+                            <p>June 10, 2026</p>
+                        </div>
+                    </div>
+                    <div class="activity-status" style="background: rgba(255,255,255,0.1); color: #fff;">Resolved</div>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const email = sessionStorage.getItem('loggedInEmail');
+            if(email) {
+                document.getElementById('user-email-display').textContent = email;
+            }
+
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const sidebar = document.querySelector('.sidebar');
+            if(mobileBtn && sidebar) {
+                mobileBtn.addEventListener('click', () => {
+                    sidebar.classList.toggle('active');
+                });
+                
+                document.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 768 && sidebar.classList.contains('active')) {
+                        if (!sidebar.contains(e.target) && !mobileBtn.contains(e.target)) {
+                            sidebar.classList.remove('active');
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

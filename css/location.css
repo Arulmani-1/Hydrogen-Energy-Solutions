@@ -1,0 +1,124 @@
+/* =========================================
+   LOCATION PAGE STYLES
+   ========================================= */
+
+.location-section {
+    background-color: #ffffff;
+    color: #333333;
+    padding: 100px 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+@media (max-width: 991px) {
+    .location-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.location-content {
+    padding-right: 20px;
+}
+
+.loc-subtitle {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #444444;
+    margin-bottom: 20px;
+}
+
+.loc-title {
+    font-size: 48px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+}
+
+.loc-desc {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #777777;
+    margin-bottom: 50px;
+}
+
+.loc-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 20px;
+}
+
+@media (max-width: 575px) {
+    .loc-details-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.loc-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.loc-icon {
+    font-size: 24px;
+    color: #333333;
+    margin-top: 2px;
+}
+
+.loc-item-content h4 {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    color: #333333;
+    text-transform: uppercase;
+}
+
+.loc-item-content p {
+    font-size: 15px;
+    color: #777777;
+    margin-bottom: 4px;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.location-map {
+    height: 100%;
+    min-height: 500px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.location-map iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* Hero Section Fixes */
+.inner-hero {
+    height: 60vh;
+    min-height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+.hero-overlay-dark {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(3,10,17,0.7), #0a0a0a);
+    z-index: 1;
+}
+.title-large {
+    font-size: clamp(3rem, 5vw, 5rem);
+    margin-bottom: 20px;
+}
+

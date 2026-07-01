@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology | Hydrogen Energy Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/technology.css">
+</head>
+<body>
+    <div id="preloader">
+        <div class="loader-spinner"><img src="images/logo.png" alt="Loading" class="spinner-center-logo"></div>
+    </div>
+
+    <div id="navbar-placeholder"></div>
+
+    <section class="inner-hero relative flex items-center justify-center text-center">
+        <img src="images/images8.jpg" alt="Technology Background" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;">
+        <div class="hero-overlay-dark" style="z-index:1;"></div>
+        
+        <div class="container relative z-10 pt-32 pb-20" style="padding-top: 120px; position: relative; z-index: 10; text-align: center;">
+            <h1 class="title-large" style="color: #ffffff !important; margin-top: 80px;">Next-Gen Technology</h1>
+            <p class="mx-auto text-lg mt-4" style="color: #ffffff !important; margin-top: 20px;">Pioneering the future of clean energy with AI, advanced materials, and breakthrough electrolysis.</p>
+        </div>
+    </section>
+
+    <!-- Interactive Process Diagram -->
+    <section class="process-section section-padding overflow-hidden">
+        <div class="container text-center">
+            <h4 class="text-accent-gradient">The Hydrogen Cycle</h4>
+            <h2 class="section-title">End-to-End Innovation</h2>
+            
+            <div class="process-interactive mt-16 relative">
+                <!-- SVG Connecting Lines -->
+                <svg class="process-lines absolute inset-0 w-full h-full" style="z-index: 0;">
+                    <path class="animated-path" d="M100,50 C200,50 300,150 400,150" fill="none" stroke="rgba(0,229,255,0.2)" stroke-width="2"/>
+                    <!-- Actual lines drawn by JS/CSS for responsiveness -->
+                </svg>
+
+                <div class="process-grid relative z-10">
+                    <!-- Step 1 -->
+                    <div class="process-node reveal">
+                        <div class="node-circle glass-panel magnetic"><i class="fas fa-sun text-accent"></i></div>
+                        <h3>1. Renewable Energy</h3>
+                        <p>Solar and wind power harnessed at gigawatt scale.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="process-node reveal" style="transition-delay: 0.1s">
+                        <div class="node-circle glass-panel magnetic active"><i class="fas fa-water text-primary"></i></div>
+                        <h3>2. Advanced Electrolysis</h3>
+                        <p>PEM systems split water with 85%+ efficiency.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="process-node reveal" style="transition-delay: 0.2s">
+                        <div class="node-circle glass-panel magnetic"><i class="fas fa-compress-arrows-alt text-white"></i></div>
+                        <h3>3. Compression</h3>
+                        <p>Multi-stage compression up to 700 bar.</p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="process-node reveal" style="transition-delay: 0.3s">
+                        <div class="node-circle glass-panel magnetic"><i class="fas fa-database text-white"></i></div>
+                        <h3>4. Smart Storage</h3>
+                        <p>AI-monitored cryogenic and high-pressure tanks.</p>
+                    </div>
+                    <!-- Step 5 -->
+                    <div class="process-node reveal" style="transition-delay: 0.4s">
+                        <div class="node-circle glass-panel magnetic"><i class="fas fa-microchip text-primary"></i></div>
+                        <h3>5. Fuel Cells</h3>
+                        <p>Conversion back to electricity with zero emissions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Tech Stacks -->
+    <section class="tech-stack section-padding bg-surface">
+        <div class="container">
+            <!-- Electrolysis -->
+            <div class="tech-row reveal">
+                <div class="tech-text">
+                    <h3 class="text-primary">Electrolysis & Carbon Capture</h3>
+                    <p class="text-gray">Our proprietary Polymer Electrolyte Membrane (PEM) electrolyzers offer the highest current density in the industry, allowing for rapid response to fluctuating renewable energy inputs. For Blue Hydrogen, our Carbon Capture systems achieve 98% capture rates using advanced amine-based solvents.</p>
+                </div>
+                <div class="tech-visual">
+                    <div class="glass-panel p-4 tilt-card">
+                        <img src="images/images1.jpg" alt="Electrolysis Tech" class="rounded-xl w-full h-64 object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Monitoring -->
+            <div class="tech-row reverse reveal mt-20">
+                <div class="tech-text">
+                    <h3 class="text-accent">AI Monitoring & Automation</h3>
+                    <p class="text-gray">We employ distributed neural networks to monitor pipeline pressure, temperature, and flow rates in real-time. Predictive maintenance algorithms reduce downtime by 40%, while our Smart Grid Integration software balances supply and demand autonomously.</p>
+                </div>
+                <div class="tech-visual">
+                    <div class="glass-panel p-4 tilt-card">
+                        <img src="images/images2.jpg" alt="AI Monitoring" class="rounded-xl w-full h-64 object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Timeline -->
+    <section class="tech-timeline section-padding">
+        <div class="container">
+            <h2 class="section-title text-center">Innovation Roadmap</h2>
+            <div class="roadmap-container mt-16 relative">
+                <div class="roadmap-line absolute top-1/2 left-0 w-full h-1 bg-gray-800 -translate-y-1/2"></div>
+                <div class="roadmap-progress absolute top-1/2 left-0 h-1 bg-primary -translate-y-1/2" style="width: 0%;"></div>
+                
+                <div class="roadmap-grid grid grid-cols-4 gap-4 relative z-10">
+                    <div class="roadmap-point text-center">
+                        <div class="year text-gray mb-2">2020</div>
+                        <div class="point-circle w-6 h-6 rounded-full bg-dark border-2 border-primary mx-auto mb-4"></div>
+                        <h4 class="text-sm">1MW PEM Scale</h4>
+                    </div>
+                    <div class="roadmap-point text-center">
+                        <div class="year text-gray mb-2">2023</div>
+                        <div class="point-circle w-6 h-6 rounded-full bg-dark border-2 border-primary mx-auto mb-4"></div>
+                        <h4 class="text-sm">AI Grid Balancing</h4>
+                    </div>
+                    <div class="roadmap-point text-center">
+                        <div class="year text-primary font-bold mb-2">2026</div>
+                        <div class="point-circle w-8 h-8 rounded-full bg-primary mx-auto mb-4 shadow-glow"></div>
+                        <h4 class="text-sm text-primary">Gigawatt Factories</h4>
+                    </div>
+                    <div class="roadmap-point text-center opacity-50">
+                        <div class="year text-gray mb-2">2030</div>
+                        <div class="point-circle w-6 h-6 rounded-full bg-dark border-2 border-gray-600 mx-auto mb-4"></div>
+                        <h4 class="text-sm">Direct Seawater Electrolysis</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/technology.js"></script>
+</body>
+</html>
