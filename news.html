@@ -121,7 +121,7 @@
                     <h4 class="text-accent mb-2">Subscribe</h4>
                     <p class="text-sm text-gray mb-4">Get the latest insights delivered to your inbox.</p>
                     <input type="email" id="news-subscribe-email" placeholder="Email Address" class="w-full bg-dark border border-gray-700 text-white p-3 rounded-lg mb-3 outline-none focus:border-primary transition-colors">
-                    <button class="btn-primary w-full text-center justify-center magnetic" onclick="if(document.getElementById('news-subscribe-email').value) { alert('Email subscription successfully!'); document.getElementById('news-subscribe-email').value=''; }">Subscribe Now</button>
+                    <button class="btn-primary w-full text-center justify-center magnetic" onclick="if(document.getElementById('news-subscribe-email').value) { window.location.href='404.html'; } else { alert('Please enter an email address.'); }">Subscribe Now</button>
                 </div>
             </div>
             

@@ -12,35 +12,54 @@
 </head>
 
 <body>
+    <!-- Dashboard Preloader -->
+    <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--dark-bg); z-index: 9999; display: flex; justify-content: center; align-items: center; transition: opacity 0.3s;">
+        <div class="loader-spinner" style="position: relative; width: 120px; height: 120px; display: flex; justify-content: center; align-items: center;">
+            <div style="position: absolute; inset: 0; border-radius: 50%; border: 4px solid rgba(0, 229, 255, 0.1); border-top-color: #00E5FF; border-right-color: #00AEEF; animation: spin 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite; box-shadow: 0 0 15px rgba(0, 229, 255, 0.3), inset 0 0 15px rgba(0, 229, 255, 0.1);"></div>
+            <img src="images/logo.png" alt="Loading" class="spinner-center-logo" style="width: 50px; height: auto; animation: pulse-glow 2s ease-in-out infinite; z-index: 10;">
+        </div>
+    </div>
+    <style>
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes pulse-glow { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(0, 229, 255, 0.2)); opacity: 0.8; } 50% { transform: scale(1.05); filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.6)); opacity: 1; } }
+    </style>
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const p = document.getElementById('preloader');
+                if(p) { p.style.opacity = '0'; setTimeout(() => p.style.display = 'none', 300); }
+            }, 400);
+        });
+    </script>
 
     <!-- Sidebar -->
     <aside class="sidebar">
-        <a href="javascript:void(0)" class="sidebar-logo" style="cursor: default;">
+        <a href="admin_dashboard.html" class="sidebar-logo" onclick="document.getElementById('preloader').style.display='flex'; setTimeout(()=>document.getElementById('preloader').style.opacity='1', 10);">
             <img src="images/logo.png" alt="STACKLY Logo">
         </a>
 
         <nav class="sidebar-nav">
-            <a href="#" class="nav-item active">
+            <a href="#" class="nav-item active" data-section="overview">
                 <i class="fas fa-chart-pie"></i>
                 <span>System Overview</span>
             </a>
-            <a href="404.html" class="nav-item">
+            <a href="#" class="nav-item" data-section="users">
                 <i class="fas fa-users"></i>
                 <span>User Management</span>
             </a>
-            <a href="404.html" class="nav-item">
+            <a href="#" class="nav-item" data-section="facilities">
                 <i class="fas fa-industry"></i>
                 <span>Facilities Setup</span>
             </a>
-            <a href="404.html" class="nav-item">
+            <a href="#" class="nav-item" data-section="analytics">
                 <i class="fas fa-chart-line"></i>
                 <span>Analytics & Reports</span>
             </a>
-            <a href="404.html" class="nav-item">
+            <a href="#" class="nav-item" data-section="alerts">
                 <i class="fas fa-exclamation-triangle"></i>
                 <span>System Alerts</span>
             </a>
-            <a href="404.html" class="nav-item">
+            <a href="#" class="nav-item" data-section="settings">
                 <i class="fas fa-cogs"></i>
                 <span>Platform Settings</span>
             </a>
@@ -60,128 +79,233 @@
             </div>
         </header>
 
-        <div class="dashboard-grid">
-            <!-- Widget 1 -->
-            <div class="widget-card">
-                <div class="widget-header">
-                    <span>Total Production</span>
-                    <i class="fas fa-bolt" style="color: var(--primary);"></i>
+        <div id="section-overview" class="dashboard-section active">
+            <div class="dashboard-grid">
+                <!-- Widget 1 -->
+                <div class="widget-card">
+                    <div class="widget-header">
+                        <span>Total Production</span>
+                        <i class="fas fa-bolt" style="color: var(--primary);"></i>
+                    </div>
+                    <div class="widget-value">4.2M <span style="font-size: 1rem; color: var(--text-muted);">kWh</span></div>
+                    <div class="widget-trend trend-up">
+                        <i class="fas fa-arrow-up"></i> +8.5% this week
+                    </div>
                 </div>
-                <div class="widget-value">4.2M <span style="font-size: 1rem; color: var(--text-muted);">kWh</span></div>
-                <div class="widget-trend trend-up">
-                    <i class="fas fa-arrow-up"></i> +8.5% this week
+
+                <!-- Widget 2 -->
+                <div class="widget-card">
+                    <div class="widget-header">
+                        <span>Active Users</span>
+                        <i class="fas fa-users" style="color: #4ade80;"></i>
+                    </div>
+                    <div class="widget-value">1,204</div>
+                    <div class="widget-trend trend-up">
+                        <i class="fas fa-arrow-up"></i> +24 new today
+                    </div>
+                </div>
+
+                <!-- Widget 3 -->
+                <div class="widget-card">
+                    <div class="widget-header">
+                        <span>System Status</span>
+                        <i class="fas fa-server" style="color: #60a5fa;"></i>
+                    </div>
+                    <div class="widget-value">99.9%</div>
+                    <div class="widget-trend" style="color: var(--text-muted);">
+                        All systems operational
+                    </div>
+                </div>
+
+                <!-- Widget 4 -->
+                <div class="widget-card">
+                    <div class="widget-header">
+                        <span>Pending Tickets</span>
+                        <i class="fas fa-ticket-alt" style="color: #f59e0b;"></i>
+                    </div>
+                    <div class="widget-value">14</div>
+                    <div class="widget-trend trend-down">
+                        <i class="fas fa-exclamation-circle"></i> Requires attention
+                    </div>
                 </div>
             </div>
 
-            <!-- Widget 2 -->
-            <div class="widget-card">
-                <div class="widget-header">
-                    <span>Active Users</span>
-                    <i class="fas fa-users" style="color: #4ade80;"></i>
-                </div>
-                <div class="widget-value">1,204</div>
-                <div class="widget-trend trend-up">
-                    <i class="fas fa-arrow-up"></i> +24 new today
-                </div>
-            </div>
+            <div class="main-grid">
+                <!-- Facilities Table -->
+                <section class="activity-section">
+                    <h3 class="section-title">Global Facilities Status</h3>
+                    <div class="table-responsive">
+                        <table>
+                        <thead>
+                            <tr>
+                                <th>Facility Name</th>
+                                <th>Location</th>
+                                <th>Output (Daily)</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Alpha H2 Plant</td>
+                                <td>Berlin, Germany</td>
+                                <td>12,400 kWh</td>
+                                <td><span class="status-badge status-active">Operational</span></td>
+                                <td><a href="#" style="color: var(--primary); text-decoration: none;">View</a></td>
+                            </tr>
+                            <tr>
+                                <td>Omega Storage Facility</td>
+                                <td>Nevada, USA</td>
+                                <td>8,200 kWh</td>
+                                <td><span class="status-badge status-pending">Maintenance</span></td>
+                                <td><a href="#" style="color: var(--primary); text-decoration: none;">View</a></td>
+                            </tr>
+                            <tr>
+                                <td>North Sea Electrolyzer</td>
+                                <td>Offshore, UK</td>
+                                <td>24,000 kWh</td>
+                                <td><span class="status-badge status-active">Operational</span></td>
+                                <td><a href="#" style="color: var(--primary); text-decoration: none;">View</a></td>
+                            </tr>
+                            <tr>
+                                <td>Tokyo Distribution Hub</td>
+                                <td>Tokyo, Japan</td>
+                                <td>0 kWh</td>
+                                <td><span class="status-badge status-offline">Offline</span></td>
+                                <td><a href="#" style="color: var(--primary); text-decoration: none;">View</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </section>
 
-            <!-- Widget 3 -->
-            <div class="widget-card">
-                <div class="widget-header">
-                    <span>System Status</span>
-                    <i class="fas fa-server" style="color: #60a5fa;"></i>
-                </div>
-                <div class="widget-value">99.9%</div>
-                <div class="widget-trend" style="color: var(--text-muted);">
-                    All systems operational
-                </div>
+                <!-- Recent System Alerts -->
+                <section class="activity-section">
+                    <h3 class="section-title">System Alerts</h3>
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <div
+                            style="padding: 15px; border-radius: 8px; background: rgba(245, 158, 11, 0.1); border-left: 3px solid #f59e0b;">
+                            <h5 style="color: #f59e0b; margin-bottom: 5px;">Storage Capacity Warning</h5>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Nevada plant nearing 90% capacity.</p>
+                        </div>
+                        <div
+                            style="padding: 15px; border-radius: 8px; background: rgba(248, 113, 113, 0.1); border-left: 3px solid #f87171;">
+                            <h5 style="color: #f87171; margin-bottom: 5px;">Connection Lost</h5>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Tokyo hub is unresponsive since 04:00
+                                AM.</p>
+                        </div>
+                        <div
+                            style="padding: 15px; border-radius: 8px; background: rgba(0, 229, 255, 0.1); border-left: 3px solid var(--primary);">
+                            <h5 style="color: var(--primary); margin-bottom: 5px;">System Update Complete</h5>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Core services updated to v2.4
+                                successfully.</p>
+                        </div>
+                    </div>
+                </section>
             </div>
+        </div>
 
-            <!-- Widget 4 -->
-            <div class="widget-card">
-                <div class="widget-header">
-                    <span>Pending Tickets</span>
-                    <i class="fas fa-ticket-alt" style="color: #f59e0b;"></i>
+        <!-- User Management -->
+        <div id="section-users" class="dashboard-section" style="display: none;">
+            <h2 class="page-title" style="margin-bottom: 20px;">User Management</h2>
+            <div class="activity-section">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                    <input type="text" placeholder="Search users..." style="padding: 10px; border-radius: 6px; background: rgba(0,0,0,0.2); border: 1px solid var(--border-color); color: white;">
+                    <button class="btn-logout" style="background: var(--primary); color: var(--dark-bg); font-weight: bold; border: none; padding: 10px 20px;">Add User</button>
                 </div>
-                <div class="widget-value">14</div>
-                <div class="widget-trend trend-down">
-                    <i class="fas fa-exclamation-circle"></i> Requires attention
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th>Action</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Sarah Jenkins</td><td>sarah.j@example.com</td><td>Admin</td><td><span class="status-badge status-active">Active</span></td><td><a href="#" style="color:var(--primary);">Edit</a></td></tr>
+                            <tr><td>Michael Chen</td><td>m.chen@example.com</td><td>Manager</td><td><span class="status-badge status-active">Active</span></td><td><a href="#" style="color:var(--primary);">Edit</a></td></tr>
+                            <tr><td>Emma Watson</td><td>emma@example.com</td><td>Viewer</td><td><span class="status-badge status-offline">Inactive</span></td><td><a href="#" style="color:var(--primary);">Edit</a></td></tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
 
-        <div class="main-grid">
-            <!-- Facilities Table -->
-            <section class="activity-section">
-                <h3 class="section-title">Global Facilities Status</h3>
-                <div class="table-responsive">
-                    <table>
-                    <thead>
-                        <tr>
-                            <th>Facility Name</th>
-                            <th>Location</th>
-                            <th>Output (Daily)</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Alpha H2 Plant</td>
-                            <td>Berlin, Germany</td>
-                            <td>12,400 kWh</td>
-                            <td><span class="status-badge status-active">Operational</span></td>
-                            <td><a href="#" style="color: var(--primary); text-decoration: none;">View</a></td>
-                        </tr>
-                        <tr>
-                            <td>Omega Storage Facility</td>
-                            <td>Nevada, USA</td>
-                            <td>8,200 kWh</td>
-                            <td><span class="status-badge status-pending">Maintenance</span></td>
-                            <td><a href="#" style="color: var(--primary); text-decoration: none;">View</a></td>
-                        </tr>
-                        <tr>
-                            <td>North Sea Electrolyzer</td>
-                            <td>Offshore, UK</td>
-                            <td>24,000 kWh</td>
-                            <td><span class="status-badge status-active">Operational</span></td>
-                            <td><a href="#" style="color: var(--primary); text-decoration: none;">View</a></td>
-                        </tr>
-                        <tr>
-                            <td>Tokyo Distribution Hub</td>
-                            <td>Tokyo, Japan</td>
-                            <td>0 kWh</td>
-                            <td><span class="status-badge status-offline">Offline</span></td>
-                            <td><a href="#" style="color: var(--primary); text-decoration: none;">View</a></td>
-                        </tr>
-                    </tbody>
-                </table>
+        <!-- Facilities Setup -->
+        <div id="section-facilities" class="dashboard-section" style="display: none;">
+            <h2 class="page-title" style="margin-bottom: 20px;">Facilities Setup</h2>
+            <div class="dashboard-grid">
+                <div class="widget-card" style="text-align: center; border: 2px dashed var(--border-color); cursor: pointer;" onclick="alert('Add facility dialog open')">
+                    <i class="fas fa-plus-circle" style="font-size: 2rem; color: var(--text-muted); margin-bottom: 15px;"></i>
+                    <h3 style="color: var(--text-muted);">Add New Facility</h3>
                 </div>
-            </section>
+                <div class="widget-card">
+                    <div class="widget-header"><span>Alpha H2 Plant</span><i class="fas fa-industry"></i></div>
+                    <div style="margin-bottom: 10px;"><span class="status-badge status-active">Online</span></div>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Location: Berlin, Germany<br>Capacity: 50MW</p>
+                    <button class="btn-logout" style="width: 100%; margin-top: 15px; text-align: center;">Configure</button>
+                </div>
+            </div>
+        </div>
 
-            <!-- Recent System Alerts -->
-            <section class="activity-section">
-                <h3 class="section-title">System Alerts</h3>
+        <!-- Analytics & Reports -->
+        <div id="section-analytics" class="dashboard-section" style="display: none;">
+            <h2 class="page-title" style="margin-bottom: 20px;">Analytics & Reports</h2>
+            <div class="activity-section">
+                <h3 class="section-title">Production vs Target</h3>
+                <div style="height: 300px; display: flex; align-items: flex-end; gap: 20px; padding-top: 20px; justify-content: space-around;">
+                    <div style="width: 100px; background: var(--primary); height: 75%; position: relative; border-radius: 4px 4px 0 0;"><span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 0.8rem;">Q1</span></div>
+                    <div style="width: 100px; background: var(--primary); height: 85%; position: relative; border-radius: 4px 4px 0 0;"><span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 0.8rem;">Q2</span></div>
+                    <div style="width: 100px; background: var(--primary); height: 60%; position: relative; border-radius: 4px 4px 0 0;"><span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 0.8rem;">Q3</span></div>
+                    <div style="width: 100px; background: rgba(0, 229, 255, 0.3); height: 90%; border: 1px dashed var(--primary); position: relative; border-radius: 4px 4px 0 0;"><span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 0.8rem;">Q4 (Proj)</span></div>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <button class="btn-logout" style="background: var(--panel-bg); color: white; padding: 10px 20px;"><i class="fas fa-download"></i> Download Report (PDF)</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Alerts -->
+        <div id="section-alerts" class="dashboard-section" style="display: none;">
+            <h2 class="page-title" style="margin-bottom: 20px;">System Alerts & Logs</h2>
+            <div class="activity-section">
                 <div style="display: flex; flex-direction: column; gap: 15px;">
-                    <div
-                        style="padding: 15px; border-radius: 8px; background: rgba(245, 158, 11, 0.1); border-left: 3px solid #f59e0b;">
-                        <h5 style="color: #f59e0b; margin-bottom: 5px;">Storage Capacity Warning</h5>
+                    <div style="padding: 15px; border-radius: 8px; background: rgba(248, 113, 113, 0.1); border-left: 3px solid #f87171;">
+                        <h5 style="color: #f87171; margin-bottom: 5px;">CRITICAL: Connection Lost</h5>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Tokyo hub is unresponsive since 04:00 AM.</p>
+                        <button style="margin-top: 10px; background: transparent; border: 1px solid #f87171; color: #f87171; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Acknowledge</button>
+                    </div>
+                    <div style="padding: 15px; border-radius: 8px; background: rgba(245, 158, 11, 0.1); border-left: 3px solid #f59e0b;">
+                        <h5 style="color: #f59e0b; margin-bottom: 5px;">WARNING: Storage Capacity</h5>
                         <p style="font-size: 0.8rem; color: var(--text-muted);">Nevada plant nearing 90% capacity.</p>
-                    </div>
-                    <div
-                        style="padding: 15px; border-radius: 8px; background: rgba(248, 113, 113, 0.1); border-left: 3px solid #f87171;">
-                        <h5 style="color: #f87171; margin-bottom: 5px;">Connection Lost</h5>
-                        <p style="font-size: 0.8rem; color: var(--text-muted);">Tokyo hub is unresponsive since 04:00
-                            AM.</p>
-                    </div>
-                    <div
-                        style="padding: 15px; border-radius: 8px; background: rgba(0, 229, 255, 0.1); border-left: 3px solid var(--primary);">
-                        <h5 style="color: var(--primary); margin-bottom: 5px;">System Update Complete</h5>
-                        <p style="font-size: 0.8rem; color: var(--text-muted);">Core services updated to v2.4
-                            successfully.</p>
+                        <button style="margin-top: 10px; background: transparent; border: 1px solid #f59e0b; color: #f59e0b; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Acknowledge</button>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+
+        <!-- Platform Settings -->
+        <div id="section-settings" class="dashboard-section" style="display: none;">
+            <h2 class="page-title" style="margin-bottom: 20px;">Platform Settings</h2>
+            <div class="activity-section">
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div>
+                        <label style="display: block; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 8px;">Maintenance Mode</label>
+                        <select style="width: 100%; max-width: 400px; padding: 12px 15px; border-radius: 6px; background: rgba(0,0,0,0.2); border: 1px solid var(--border-color); color: white; outline: none;">
+                            <option>Disabled</option>
+                            <option>Enabled</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 8px;">System Backup Frequency</label>
+                        <select style="width: 100%; max-width: 400px; padding: 12px 15px; border-radius: 6px; background: rgba(0,0,0,0.2); border: 1px solid var(--border-color); color: white; outline: none;">
+                            <option>Daily</option>
+                            <option>Weekly</option>
+                            <option>Monthly</option>
+                        </select>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <button class="btn-logout" onclick="alert('Platform Settings saved!');" style="background: var(--primary); color: var(--dark-bg); font-weight: bold; border: none; padding: 12px 25px; cursor: pointer;">Save Settings</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -201,6 +325,43 @@
                 if (headerName) headerName.textContent = signupName;
                 if (sidebarName) sidebarName.textContent = signupName;
             }
+
+            // Tab Switching Logic
+            const navItems = document.querySelectorAll('.sidebar-nav .nav-item');
+            const sections = document.querySelectorAll('.dashboard-section');
+
+            navItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    const sectionId = item.getAttribute('data-section');
+                    if (sectionId) {
+                        e.preventDefault();
+                        
+                        // Update active nav
+                        navItems.forEach(nav => nav.classList.remove('active'));
+                        item.classList.add('active');
+
+                        // Update active section
+                        sections.forEach(sec => {
+                            if (sec.id === 'section-' + sectionId) {
+                                sec.style.display = 'block';
+                                sec.style.opacity = '0';
+                                setTimeout(() => {
+                                    sec.style.transition = 'opacity 0.3s ease';
+                                    sec.style.opacity = '1';
+                                }, 10);
+                            } else {
+                                sec.style.display = 'none';
+                            }
+                        });
+
+                        // Close mobile menu if open
+                        const sidebar = document.querySelector('.sidebar');
+                        if (window.innerWidth <= 768 && sidebar && sidebar.classList.contains('active')) {
+                            sidebar.classList.remove('active');
+                        }
+                    }
+                });
+            });
 
             const mobileBtn = document.getElementById('mobile-menu-btn');
             const sidebar = document.querySelector('.sidebar');

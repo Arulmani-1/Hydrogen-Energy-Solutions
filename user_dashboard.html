@@ -12,10 +12,29 @@
 </head>
 
 <body>
+    <!-- Dashboard Preloader -->
+    <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--dark-bg); z-index: 9999; display: flex; justify-content: center; align-items: center; transition: opacity 0.3s;">
+        <div class="loader-spinner" style="position: relative; width: 120px; height: 120px; display: flex; justify-content: center; align-items: center;">
+            <div style="position: absolute; inset: 0; border-radius: 50%; border: 4px solid rgba(0, 229, 255, 0.1); border-top-color: #00E5FF; border-right-color: #00AEEF; animation: spin 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite; box-shadow: 0 0 15px rgba(0, 229, 255, 0.3), inset 0 0 15px rgba(0, 229, 255, 0.1);"></div>
+            <img src="images/logo.png" alt="Loading" class="spinner-center-logo" style="width: 50px; height: auto; animation: pulse-glow 2s ease-in-out infinite; z-index: 10;">
+        </div>
+    </div>
+    <style>
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes pulse-glow { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(0, 229, 255, 0.2)); opacity: 0.8; } 50% { transform: scale(1.05); filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.6)); opacity: 1; } }
+    </style>
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const p = document.getElementById('preloader');
+                if(p) { p.style.opacity = '0'; setTimeout(() => p.style.display = 'none', 300); }
+            }, 400);
+        });
+    </script>
 
     <!-- Sidebar -->
     <aside class="sidebar">
-        <a href="javascript:void(0)" class="sidebar-logo" style="cursor: default;">
+        <a href="user_dashboard.html" class="sidebar-logo" onclick="document.getElementById('preloader').style.display='flex'; setTimeout(()=>document.getElementById('preloader').style.opacity='1', 10);">
             <img src="images/logo.png" alt="STACKLY Logo">
         </a>
 
@@ -32,23 +51,23 @@
                 </div>
             </div>
 
-            <a href="#" class="nav-item active">
+            <a href="#" class="nav-item active" data-section="overview">
                 <i class="fas fa-home"></i>
                 <span>Overview</span>
             </a>
-            <a href="404.html" class="nav-item">
+            <a href="#" class="nav-item" data-section="energy">
                 <i class="fas fa-bolt"></i>
                 <span>Energy Usage</span>
             </a>
-            <a href="404.html" class="nav-item">
+            <a href="#" class="nav-item" data-section="billing">
                 <i class="fas fa-file-invoice-dollar"></i>
                 <span>Billing & Invoices</span>
             </a>
-            <a href="404.html" class="nav-item">
+            <a href="#" class="nav-item" data-section="support">
                 <i class="fas fa-headset"></i>
                 <span>Support</span>
             </a>
-            <a href="404.html" class="nav-item">
+            <a href="#" class="nav-item" data-section="settings">
                 <i class="fas fa-cog"></i>
                 <span>Settings</span>
             </a>
@@ -69,79 +88,211 @@
             </div>
         </header>
 
-        <div class="dashboard-grid">
-            <!-- Widget 1 -->
-            <div class="widget-card">
-                <div class="widget-header">
-                    <span>Current Usage</span>
-                    <i class="fas fa-bolt"></i>
+        <div id="section-overview" class="dashboard-section active">
+            <div class="dashboard-grid">
+                <!-- Widget 1 -->
+                <div class="widget-card">
+                    <div class="widget-header">
+                        <span>Current Usage</span>
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="widget-value">450 kWh</div>
+                    <div class="widget-trend trend-up">
+                        <i class="fas fa-arrow-up"></i> 12% vs last month
+                    </div>
                 </div>
-                <div class="widget-value">450 kWh</div>
-                <div class="widget-trend trend-up">
-                    <i class="fas fa-arrow-up"></i> 12% vs last month
+
+                <!-- Widget 2 -->
+                <div class="widget-card">
+                    <div class="widget-header">
+                        <span>Active Plan</span>
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="widget-value">Green Basic</div>
+                    <div class="widget-trend" style="color: var(--text-muted);">
+                        Renews in 14 days
+                    </div>
+                </div>
+
+                <!-- Widget 3 -->
+                <div class="widget-card">
+                    <div class="widget-header">
+                        <span>Carbon Saved</span>
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <div class="widget-value">1.2 Tons</div>
+                    <div class="widget-trend trend-up">
+                        <i class="fas fa-arrow-up"></i> Awesome progress!
+                    </div>
                 </div>
             </div>
 
-            <!-- Widget 2 -->
-            <div class="widget-card">
-                <div class="widget-header">
-                    <span>Active Plan</span>
-                    <i class="fas fa-leaf"></i>
-                </div>
-                <div class="widget-value">Green Basic</div>
-                <div class="widget-trend" style="color: var(--text-muted);">
-                    Renews in 14 days
+            <section class="activity-section">
+                <h3 class="section-title">Recent Activity</h3>
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <div class="activity-info">
+                            <div class="activity-icon"><i class="fas fa-file-invoice"></i></div>
+                            <div class="activity-details">
+                                <h5>Invoice #4029 Generated</h5>
+                                <p>June 28, 2026</p>
+                            </div>
+                        </div>
+                        <div class="activity-status">Paid</div>
+                    </li>
+                    <li class="activity-item">
+                        <div class="activity-info">
+                            <div class="activity-icon"><i class="fas fa-exchange-alt"></i></div>
+                            <div class="activity-details">
+                                <h5>Plan Upgraded to Green Basic</h5>
+                                <p>June 15, 2026</p>
+                            </div>
+                        </div>
+                        <div class="activity-status">Completed</div>
+                    </li>
+                    <li class="activity-item">
+                        <div class="activity-info">
+                            <div class="activity-icon"><i class="fas fa-headset"></i></div>
+                            <div class="activity-details">
+                                <h5>Support Ticket #102 Closed</h5>
+                                <p>June 10, 2026</p>
+                            </div>
+                        </div>
+                        <div class="activity-status" style="background: rgba(255,255,255,0.1); color: #fff;">Resolved</div>
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+        <!-- Energy Usage Section -->
+        <div id="section-energy" class="dashboard-section" style="display: none;">
+            <h2 class="page-title" style="margin-bottom: 20px;">Energy Usage Analysis</h2>
+            <div class="activity-section" style="margin-bottom: 25px;">
+                <h3 class="section-title">Weekly Consumption</h3>
+                <div style="height: 300px; display: flex; align-items: flex-end; gap: 15px; padding-top: 20px;">
+                    <div style="flex: 1; background: var(--primary); height: 60%; border-radius: 4px 4px 0 0; position: relative;"><span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 0.8rem;">Mon</span></div>
+                    <div style="flex: 1; background: var(--primary); height: 80%; border-radius: 4px 4px 0 0; position: relative;"><span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 0.8rem;">Tue</span></div>
+                    <div style="flex: 1; background: var(--primary); height: 40%; border-radius: 4px 4px 0 0; opacity: 0.6; position: relative;"><span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 0.8rem;">Wed</span></div>
+                    <div style="flex: 1; background: var(--primary); height: 90%; border-radius: 4px 4px 0 0; position: relative;"><span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 0.8rem;">Thu</span></div>
+                    <div style="flex: 1; background: var(--primary); height: 70%; border-radius: 4px 4px 0 0; position: relative;"><span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 0.8rem;">Fri</span></div>
+                    <div style="flex: 1; background: var(--primary); height: 30%; border-radius: 4px 4px 0 0; opacity: 0.5; position: relative;"><span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 0.8rem;">Sat</span></div>
+                    <div style="flex: 1; background: var(--primary); height: 20%; border-radius: 4px 4px 0 0; opacity: 0.4; position: relative;"><span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 0.8rem;">Sun</span></div>
                 </div>
             </div>
-
-            <!-- Widget 3 -->
-            <div class="widget-card">
-                <div class="widget-header">
-                    <span>Carbon Saved</span>
-                    <i class="fas fa-globe-americas"></i>
+            <div class="dashboard-grid">
+                <div class="widget-card">
+                    <div class="widget-header"><span>Peak Usage Time</span><i class="fas fa-clock"></i></div>
+                    <div class="widget-value">2:00 PM</div>
+                    <div class="widget-trend">Typically high on weekdays</div>
                 </div>
-                <div class="widget-value">1.2 Tons</div>
-                <div class="widget-trend trend-up">
-                    <i class="fas fa-arrow-up"></i> Awesome progress!
+                <div class="widget-card">
+                    <div class="widget-header"><span>Efficiency Score</span><i class="fas fa-leaf"></i></div>
+                    <div class="widget-value">94%</div>
+                    <div class="widget-trend trend-up"><i class="fas fa-arrow-up"></i> Top 10% in area</div>
                 </div>
             </div>
         </div>
 
-        <section class="activity-section">
-            <h3 class="section-title">Recent Activity</h3>
-            <ul class="activity-list">
-                <li class="activity-item">
-                    <div class="activity-info">
-                        <div class="activity-icon"><i class="fas fa-file-invoice"></i></div>
-                        <div class="activity-details">
-                            <h5>Invoice #4029 Generated</h5>
-                            <p>June 28, 2026</p>
+        <!-- Billing & Invoices Section -->
+        <div id="section-billing" class="dashboard-section" style="display: none;">
+            <h2 class="page-title" style="margin-bottom: 20px;">Billing & Invoices</h2>
+            <div class="activity-section">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px;">
+                    <div>
+                        <h4 style="color: var(--text-muted); font-size: 0.9rem;">Current Balance</h4>
+                        <h2 style="font-size: 2.5rem; color: var(--primary); margin-top: 5px;">$124.50</h2>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Due by July 15, 2026</p>
+                    </div>
+                    <button class="btn-logout" style="background: var(--primary); color: var(--dark-bg); font-weight: bold; border: none; padding: 12px 25px; cursor: pointer;">Pay Now</button>
+                </div>
+                <h3 class="section-title">Recent Invoices</h3>
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <div class="activity-info">
+                            <div class="activity-icon"><i class="fas fa-file-pdf"></i></div>
+                            <div class="activity-details">
+                                <h5>INV-2026-06</h5>
+                                <p>June 01, 2026</p>
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-weight: bold;">$118.20</div>
+                            <div class="activity-status" style="margin-top: 5px;">Paid</div>
+                        </div>
+                    </li>
+                    <li class="activity-item">
+                        <div class="activity-info">
+                            <div class="activity-icon"><i class="fas fa-file-pdf"></i></div>
+                            <div class="activity-details">
+                                <h5>INV-2026-05</h5>
+                                <p>May 01, 2026</p>
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-weight: bold;">$132.00</div>
+                            <div class="activity-status" style="margin-top: 5px;">Paid</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Support Section -->
+        <div id="section-support" class="dashboard-section" style="display: none;">
+            <h2 class="page-title" style="margin-bottom: 20px;">Help & Support</h2>
+            <div class="dashboard-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                <div class="widget-card" style="text-align: center; cursor: pointer;" onclick="window.location.href='404.html'">
+                    <i class="fas fa-book" style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;"></i>
+                    <h3 style="margin-bottom: 10px;">Knowledge Base</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Browse articles and tutorials</p>
+                </div>
+                <div class="widget-card" style="text-align: center; cursor: pointer;" onclick="window.location.href='404.html'">
+                    <i class="fas fa-comments" style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;"></i>
+                    <h3 style="margin-bottom: 10px;">Live Chat</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Speak with our support agents</p>
+                </div>
+                <div class="widget-card" style="text-align: center; cursor: pointer;" onclick="window.location.href='404.html'">
+                    <i class="fas fa-envelope" style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;"></i>
+                    <h3 style="margin-bottom: 10px;">Email Us</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Get help via email within 24h</p>
+                </div>
+            </div>
+            <div class="activity-section" style="margin-top: 25px;">
+                <h3 class="section-title">Open Tickets</h3>
+                <p style="color: var(--text-muted); text-align: center; padding: 20px 0;">You have no open support tickets at the moment.</p>
+            </div>
+        </div>
+
+        <!-- Settings Section -->
+        <div id="section-settings" class="dashboard-section" style="display: none;">
+            <h2 class="page-title" style="margin-bottom: 20px;">Account Settings</h2>
+            <div class="activity-section">
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div>
+                        <label style="display: block; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 8px;">Full Name</label>
+                        <input type="text" value="John Doe" id="settings-name" style="width: 100%; max-width: 400px; padding: 12px 15px; border-radius: 6px; background: rgba(0,0,0,0.2); border: 1px solid var(--border-color); color: white; outline: none;">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 8px;">Email Address</label>
+                        <input type="email" value="john@example.com" id="settings-email" readonly style="width: 100%; max-width: 400px; padding: 12px 15px; border-radius: 6px; background: rgba(0,0,0,0.5); border: 1px solid var(--border-color); color: #888; outline: none; cursor: not-allowed;">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 8px;">Notification Preferences</label>
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <input type="checkbox" id="notif1" checked style="accent-color: var(--primary); width: 16px; height: 16px;">
+                            <label for="notif1">Email me when a new invoice is generated</label>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <input type="checkbox" id="notif2" checked style="accent-color: var(--primary); width: 16px; height: 16px;">
+                            <label for="notif2">Send weekly energy usage reports</label>
                         </div>
                     </div>
-                    <div class="activity-status">Paid</div>
-                </li>
-                <li class="activity-item">
-                    <div class="activity-info">
-                        <div class="activity-icon"><i class="fas fa-exchange-alt"></i></div>
-                        <div class="activity-details">
-                            <h5>Plan Upgraded to Green Basic</h5>
-                            <p>June 15, 2026</p>
-                        </div>
+                    <div style="margin-top: 10px;">
+                        <button class="btn-logout" onclick="alert('Settings saved successfully!');" style="background: var(--primary); color: var(--dark-bg); font-weight: bold; border: none; padding: 12px 25px; cursor: pointer;">Save Changes</button>
                     </div>
-                    <div class="activity-status">Completed</div>
-                </li>
-                <li class="activity-item">
-                    <div class="activity-info">
-                        <div class="activity-icon"><i class="fas fa-headset"></i></div>
-                        <div class="activity-details">
-                            <h5>Support Ticket #102 Closed</h5>
-                            <p>June 10, 2026</p>
-                        </div>
-                    </div>
-                    <div class="activity-status" style="background: rgba(255,255,255,0.1); color: #fff;">Resolved</div>
-                </li>
-            </ul>
-        </section>
+                </div>
+            </div>
+        </div>
     </main>
 
     <script>
@@ -157,9 +308,48 @@
             if (signupName) {
                 const headerName = document.getElementById('header-user-name');
                 const sidebarName = document.getElementById('sidebar-user-name');
+                const settingsName = document.getElementById('settings-name');
                 if (headerName) headerName.textContent = signupName;
                 if (sidebarName) sidebarName.textContent = signupName;
+                if (settingsName) settingsName.value = signupName;
             }
+
+            // Tab Switching Logic
+            const navItems = document.querySelectorAll('.sidebar-nav .nav-item');
+            const sections = document.querySelectorAll('.dashboard-section');
+
+            navItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    const sectionId = item.getAttribute('data-section');
+                    if (sectionId) {
+                        e.preventDefault();
+                        
+                        // Update active nav
+                        navItems.forEach(nav => nav.classList.remove('active'));
+                        item.classList.add('active');
+
+                        // Update active section
+                        sections.forEach(sec => {
+                            if (sec.id === 'section-' + sectionId) {
+                                sec.style.display = 'block';
+                                sec.style.opacity = '0';
+                                setTimeout(() => {
+                                    sec.style.transition = 'opacity 0.3s ease';
+                                    sec.style.opacity = '1';
+                                }, 10);
+                            } else {
+                                sec.style.display = 'none';
+                            }
+                        });
+
+                        // Close mobile menu if open
+                        const sidebar = document.querySelector('.sidebar');
+                        if (window.innerWidth <= 768 && sidebar && sidebar.classList.contains('active')) {
+                            sidebar.classList.remove('active');
+                        }
+                    }
+                });
+            });
 
             const mobileBtn = document.getElementById('mobile-menu-btn');
             const sidebar = document.querySelector('.sidebar');
