@@ -39,17 +39,7 @@
         </a>
 
         <nav class="sidebar-nav">
-            <!-- User Profile Display -->
-            <div class="user-profile-sidebar"
-                style="padding: 15px 20px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px; color: #fff;">
-                <div style="display: flex; align-items: center;">
-                    <i class="fas fa-user-circle" style="font-size: 24px; margin-right: 10px;"></i>
-                    <div style="display: flex; flex-direction: column;">
-                        <span id="sidebar-user-name" style="font-weight: 600;">Guest</span>
-                        <span id="sidebar-user-email" style="font-size: 0.8rem; color: #aaa;"></span>
-                    </div>
-                </div>
-            </div>
+
 
             <a href="#" class="nav-item active" data-section="overview">
                 <i class="fas fa-home"></i>
@@ -203,7 +193,7 @@
                         <h2 style="font-size: 2.5rem; color: var(--primary); margin-top: 5px;">$124.50</h2>
                         <p style="font-size: 0.85rem; color: var(--text-muted);">Due by July 15, 2026</p>
                     </div>
-                    <button class="btn-logout" style="background: var(--primary); color: var(--dark-bg); font-weight: bold; border: none; padding: 12px 25px; cursor: pointer;">Pay Now</button>
+                    <button onclick="window.location.href='dashboard_404.html'" class="btn-logout" style="background: var(--primary); color: var(--dark-bg); font-weight: bold; border: none; padding: 12px 25px; cursor: pointer;">Pay Now</button>
                 </div>
                 <h3 class="section-title">Recent Invoices</h3>
                 <ul class="activity-list">
@@ -241,17 +231,17 @@
         <div id="section-support" class="dashboard-section" style="display: none;">
             <h2 class="page-title" style="margin-bottom: 20px;">Help & Support</h2>
             <div class="dashboard-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
-                <div class="widget-card" style="text-align: center; cursor: pointer;" onclick="window.location.href='404.html'">
+                <div class="widget-card" style="text-align: center; cursor: pointer;" onclick="window.location.href='dashboard_404.html'">
                     <i class="fas fa-book" style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;"></i>
                     <h3 style="margin-bottom: 10px;">Knowledge Base</h3>
                     <p style="font-size: 0.9rem; color: var(--text-muted);">Browse articles and tutorials</p>
                 </div>
-                <div class="widget-card" style="text-align: center; cursor: pointer;" onclick="window.location.href='404.html'">
+                <div class="widget-card" style="text-align: center; cursor: pointer;" onclick="window.location.href='dashboard_404.html'">
                     <i class="fas fa-comments" style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;"></i>
                     <h3 style="margin-bottom: 10px;">Live Chat</h3>
                     <p style="font-size: 0.9rem; color: var(--text-muted);">Speak with our support agents</p>
                 </div>
-                <div class="widget-card" style="text-align: center; cursor: pointer;" onclick="window.location.href='404.html'">
+                <div class="widget-card" style="text-align: center; cursor: pointer;" onclick="window.location.href='dashboard_404.html'">
                     <i class="fas fa-envelope" style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;"></i>
                     <h3 style="margin-bottom: 10px;">Email Us</h3>
                     <p style="font-size: 0.9rem; color: var(--text-muted);">Get help via email within 24h</p>
@@ -288,7 +278,7 @@
                         </div>
                     </div>
                     <div style="margin-top: 10px;">
-                        <button class="btn-logout" onclick="alert('Settings saved successfully!');" style="background: var(--primary); color: var(--dark-bg); font-weight: bold; border: none; padding: 12px 25px; cursor: pointer;">Save Changes</button>
+                        <button onclick="window.location.href='dashboard_404.html'" class="btn-logout" style="background: var(--primary); color: var(--dark-bg); font-weight: bold; border: none; padding: 12px 25px; cursor: pointer;">Save Changes</button>
                     </div>
                 </div>
             </div>

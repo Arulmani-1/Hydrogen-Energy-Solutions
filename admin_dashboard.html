@@ -211,7 +211,7 @@
             <div class="activity-section">
                 <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
                     <input type="text" placeholder="Search users..." style="padding: 10px; border-radius: 6px; background: rgba(0,0,0,0.2); border: 1px solid var(--border-color); color: white;">
-                    <button class="btn-logout" style="background: var(--primary); color: var(--dark-bg); font-weight: bold; border: none; padding: 10px 20px;">Add User</button>
+                    <button onclick="window.location.href='dashboard_404.html'" class="btn-logout" style="background: var(--primary); color: var(--dark-bg); font-weight: bold; border: none; padding: 10px 20px;">Add User</button>
                 </div>
                 <div class="table-responsive">
                     <table>
@@ -219,9 +219,9 @@
                             <tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th>Action</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td>Sarah Jenkins</td><td>sarah.j@example.com</td><td>Admin</td><td><span class="status-badge status-active">Active</span></td><td><a href="#" style="color:var(--primary);">Edit</a></td></tr>
-                            <tr><td>Michael Chen</td><td>m.chen@example.com</td><td>Manager</td><td><span class="status-badge status-active">Active</span></td><td><a href="#" style="color:var(--primary);">Edit</a></td></tr>
-                            <tr><td>Emma Watson</td><td>emma@example.com</td><td>Viewer</td><td><span class="status-badge status-offline">Inactive</span></td><td><a href="#" style="color:var(--primary);">Edit</a></td></tr>
+                            <tr><td>Sarah Jenkins</td><td>sarah.j@example.com</td><td>Admin</td><td><span class="status-badge status-active">Active</span></td><td><a href="dashboard_404.html" style="color:var(--primary);">Edit</a></td></tr>
+                            <tr><td>Michael Chen</td><td>m.chen@example.com</td><td>Manager</td><td><span class="status-badge status-active">Active</span></td><td><a href="dashboard_404.html" style="color:var(--primary);">Edit</a></td></tr>
+                            <tr><td>Emma Watson</td><td>emma@example.com</td><td>Viewer</td><td><span class="status-badge status-offline">Inactive</span></td><td><a href="dashboard_404.html" style="color:var(--primary);">Edit</a></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -232,7 +232,7 @@
         <div id="section-facilities" class="dashboard-section" style="display: none;">
             <h2 class="page-title" style="margin-bottom: 20px;">Facilities Setup</h2>
             <div class="dashboard-grid">
-                <div class="widget-card" style="text-align: center; border: 2px dashed var(--border-color); cursor: pointer;" onclick="alert('Add facility dialog open')">
+                <div class="widget-card" style="text-align: center; border: 2px dashed var(--border-color); cursor: pointer;" onclick="window.location.href='dashboard_404.html'">
                     <i class="fas fa-plus-circle" style="font-size: 2rem; color: var(--text-muted); margin-bottom: 15px;"></i>
                     <h3 style="color: var(--text-muted);">Add New Facility</h3>
                 </div>
@@ -240,7 +240,7 @@
                     <div class="widget-header"><span>Alpha H2 Plant</span><i class="fas fa-industry"></i></div>
                     <div style="margin-bottom: 10px;"><span class="status-badge status-active">Online</span></div>
                     <p style="font-size: 0.85rem; color: var(--text-muted);">Location: Berlin, Germany<br>Capacity: 50MW</p>
-                    <button class="btn-logout" style="width: 100%; margin-top: 15px; text-align: center;">Configure</button>
+                    <button onclick="window.location.href='dashboard_404.html'" class="btn-logout" style="width: 100%; margin-top: 15px; text-align: center;">Configure</button>
                 </div>
             </div>
         </div>
@@ -257,7 +257,7 @@
                     <div style="width: 100px; background: rgba(0, 229, 255, 0.3); height: 90%; border: 1px dashed var(--primary); position: relative; border-radius: 4px 4px 0 0;"><span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 0.8rem;">Q4 (Proj)</span></div>
                 </div>
                 <div style="text-align: center; margin-top: 20px;">
-                    <button class="btn-logout" style="background: var(--panel-bg); color: white; padding: 10px 20px;"><i class="fas fa-download"></i> Download Report (PDF)</button>
+                    <button onclick="window.location.href='dashboard_404.html'" class="btn-logout" style="background: var(--panel-bg); color: white; padding: 10px 20px;"><i class="fas fa-download"></i> Download Report (PDF)</button>
                 </div>
             </div>
         </div>
@@ -270,12 +270,12 @@
                     <div style="padding: 15px; border-radius: 8px; background: rgba(248, 113, 113, 0.1); border-left: 3px solid #f87171;">
                         <h5 style="color: #f87171; margin-bottom: 5px;">CRITICAL: Connection Lost</h5>
                         <p style="font-size: 0.8rem; color: var(--text-muted);">Tokyo hub is unresponsive since 04:00 AM.</p>
-                        <button style="margin-top: 10px; background: transparent; border: 1px solid #f87171; color: #f87171; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Acknowledge</button>
+                        <button onclick="window.location.href='dashboard_404.html'" style="margin-top: 10px; background: transparent; border: 1px solid #f87171; color: #f87171; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Acknowledge</button>
                     </div>
                     <div style="padding: 15px; border-radius: 8px; background: rgba(245, 158, 11, 0.1); border-left: 3px solid #f59e0b;">
                         <h5 style="color: #f59e0b; margin-bottom: 5px;">WARNING: Storage Capacity</h5>
                         <p style="font-size: 0.8rem; color: var(--text-muted);">Nevada plant nearing 90% capacity.</p>
-                        <button style="margin-top: 10px; background: transparent; border: 1px solid #f59e0b; color: #f59e0b; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Acknowledge</button>
+                        <button onclick="window.location.href='dashboard_404.html'" style="margin-top: 10px; background: transparent; border: 1px solid #f59e0b; color: #f59e0b; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Acknowledge</button>
                     </div>
                 </div>
             </div>
@@ -302,7 +302,7 @@
                         </select>
                     </div>
                     <div style="margin-top: 10px;">
-                        <button class="btn-logout" onclick="alert('Platform Settings saved!');" style="background: var(--primary); color: var(--dark-bg); font-weight: bold; border: none; padding: 12px 25px; cursor: pointer;">Save Settings</button>
+                        <button onclick="window.location.href='dashboard_404.html'" class="btn-logout" style="background: var(--primary); color: var(--dark-bg); font-weight: bold; border: none; padding: 12px 25px; cursor: pointer;">Save Settings</button>
                     </div>
                 </div>
             </div>
