@@ -58,6 +58,7 @@
 /* Smooth Scrolling is handled by Lenis, but fallback */
 html {
   scroll-behavior: auto; /* Lenis overrides this */
+  overflow-x: hidden;
 }
 
 body {
