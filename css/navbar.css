@@ -159,6 +159,8 @@
     background: rgba(255, 255, 255, 0.1);
     color: #00A6EB;
 }
+
+.mega-menu {
     display: grid;
     grid-template-columns: 1fr 1fr 1.5fr;
     gap: 30px;
