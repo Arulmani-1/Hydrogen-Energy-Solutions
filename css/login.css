@@ -23,7 +23,7 @@ body {
 .login-banner {
     flex: 1;
     position: relative;
-    background-image: url('../images/images1.jpg'); /* Hydrogen themed background */
+    background-image: url('../images/images1.webp'); /* Hydrogen themed background */
     background-size: cover;
     background-position: center;
     display: flex;

@@ -605,7 +605,7 @@
     position: relative;
     width: 100%;
     height: 450px;
-    background-image: url('../images/references_banner.png'); /* Custom AI generated banner */
+    background-image: url('../images/references_banner.webp'); /* Custom AI generated banner */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
